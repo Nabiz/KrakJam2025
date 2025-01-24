@@ -240,7 +240,7 @@ mesh = SubResource("CapsuleMesh_f0yf7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.559839, 0)
 
 [node name="Weapon" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44553, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56, 0)
 
 [node name="flamethrower_long2" type="Node3D" parent="Weapon"]
 transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 0, -0.671684, -0.729092)
