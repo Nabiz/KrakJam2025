@@ -239,20 +239,23 @@ mesh = SubResource("CapsuleMesh_f0yf7")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.559839, 0)
 
-[node name="flamethrower_long2" type="Node3D" parent="."]
-transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 0, 0, -0.871731)
+[node name="Weapon" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44553, 0)
 
-[node name="tmpParent" type="Node3D" parent="flamethrower_long2"]
+[node name="flamethrower_long2" type="Node3D" parent="Weapon"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 0, -0.671684, -0.729092)
 
-[node name="flamethrower_long" type="Node3D" parent="flamethrower_long2/tmpParent"]
+[node name="tmpParent" type="Node3D" parent="Weapon/flamethrower_long2"]
+
+[node name="flamethrower_long" type="Node3D" parent="Weapon/flamethrower_long2/tmpParent"]
 transform = Transform3D(0.3828, 0, 0, 0, 0.3828, 0, 0, 0, 0.3828, 0, 0, 0)
 
-[node name="Group" type="MeshInstance3D" parent="flamethrower_long2/tmpParent/flamethrower_long"]
+[node name="Group" type="MeshInstance3D" parent="Weapon/flamethrower_long2/tmpParent/flamethrower_long"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.286604, -0.08, 0.359791)
 mesh = SubResource("ArrayMesh_yvu6y")
 skeleton = NodePath("")
 
-[node name="Group2" type="MeshInstance3D" parent="flamethrower_long2/tmpParent/flamethrower_long"]
+[node name="Group2" type="MeshInstance3D" parent="Weapon/flamethrower_long2/tmpParent/flamethrower_long"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221279, 5.18874e-15, 0.7489)
 mesh = SubResource("ArrayMesh_prom4")
 skeleton = NodePath("")

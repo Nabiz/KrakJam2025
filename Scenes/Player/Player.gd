@@ -2,9 +2,10 @@ extends CharacterBody3D
 
 @export_subgroup("Movement")
 @export var SPEED = 5
-@export var JUMP_VELOCITY = 8
+@export var JUMP_VELOCITY = 5
 
 @onready var camera = $Camera3D;
+@onready var weapon = $Weapon;
 
 var mouse_sensitivity = 700
 var gamepad_sensitivity := 0.075
@@ -34,6 +35,9 @@ func _physics_process(delta: float) -> void:
 	# Rotation
 	camera.rotation.z = lerp_angle(camera.rotation.z, -input_mouse.x * 25 * delta, delta * 5)	
 	camera.rotation.x = lerp_angle(camera.rotation.x, rotation_target.x, delta * 25)
+	weapon.rotation.z = camera.rotation.z;
+	weapon.rotation.x = camera.rotation.x;
+	
 	rotation.y = lerp_angle(rotation.y, rotation_target.y, delta * 25)
 	
 
