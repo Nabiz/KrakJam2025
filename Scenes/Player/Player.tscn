@@ -259,3 +259,6 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221279, 5.18874e-15, 0.7489)
 mesh = SubResource("ArrayMesh_prom4")
 skeleton = NodePath("")
+
+[node name="BubbleSpawnPoint" type="Marker3D" parent="Weapon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0742113, -0.34761, -1.33784)

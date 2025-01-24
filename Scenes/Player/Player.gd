@@ -1,11 +1,14 @@
 extends CharacterBody3D
 
+class_name Player;
+
 @export_subgroup("Movement")
 @export var SPEED = 5
 @export var JUMP_VELOCITY = 5
 
 @onready var camera = $Camera3D;
 @onready var weapon = $Weapon;
+@onready var bubbleSpawnPoint: Marker3D = $Weapon/BubbleSpawnPoint;
 
 var mouse_sensitivity = 700
 var gamepad_sensitivity := 0.075
