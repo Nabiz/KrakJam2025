@@ -15,14 +15,13 @@ func _process(delta):
 		currentBubble.look_at(currentBubble.global_position + direction);
 
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.is_pressed():
-			currentBubble = Bubble.instantiate();
-			currentBubble.distortion = 2.0;
-			add_child(currentBubble);
-		else:
-			currentBubble.distortion = 1.0;
-			currentBubble = null;
+	if event.is_action_pressed("Spawn"):
+		currentBubble = Bubble.instantiate();
+		currentBubble.distortion = 2.0;
+		add_child(currentBubble);
+	if event.is_action_released("Spawn"):
+		currentBubble.distortion = 1.0;
+		currentBubble = null;
 
 func _physics_process(delta):
 	if currentBubble:
