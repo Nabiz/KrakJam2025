@@ -4,6 +4,7 @@ class_name Bubble;
 
 const MIN_SCALE: float = 0.2;
 const MAX_SCALE: float = 10.0;
+var distortion: float = 1.0;
 @onready var gfx: Node3D = $BubbleGFX;
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D;
 

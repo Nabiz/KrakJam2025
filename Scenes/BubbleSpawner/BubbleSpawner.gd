@@ -12,13 +12,16 @@ func _process(delta):
 	if currentBubble:
 		var direction = (player.bubbleSpawnPoint.global_position - player.global_position).normalized()
 		currentBubble.global_position = player.bubbleSpawnPoint.global_position + direction * currentBubble.targetScale;
+		currentBubble.look_at(currentBubble.global_position + direction);
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			currentBubble = Bubble.instantiate();
+			currentBubble.distortion = 2.0;
 			add_child(currentBubble);
 		else:
+			currentBubble.distortion = 1.0;
 			currentBubble = null;
 
 func _physics_process(delta):
