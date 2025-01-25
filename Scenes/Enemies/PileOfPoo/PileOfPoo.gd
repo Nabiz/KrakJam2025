@@ -11,6 +11,7 @@ const JUMP_VELOCITY = 4.5
 @export var target_node: Node3D
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var poo_emiter: PaintEmitter = $PaintEmitter
+@onready var gfx: Node3D = $GFX;
 
 func _ready() -> void:
 	animation.play("Jumping")
@@ -33,3 +34,7 @@ func _physics_process(delta: float) -> void:
 
 func emit_paint():
 	poo_emiter.emit_single_paint()
+#
+func getVisual():
+	return gfx;
+	

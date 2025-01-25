@@ -6,12 +6,17 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ru74g"]
 bounce = 1.0
 
-[node name="Bubble" type="RigidBody3D"]
+[node name="Bubble" type="RigidBody3D" groups=["EnemiesCatcher"]]
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_ru74g")
 gravity_scale = 0.1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_u24qe")
 
 [node name="BubbleGFX" parent="." instance=ExtResource("2_8st3x")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=4 uid="uid://b1jlj0p7clg7m"]
+[gd_scene load_steps=20 format=4 uid="uid://bcevvdxosblkg"]
 
 [ext_resource type="PackedScene" uid="uid://nusimec88pyi" path="res://Scenes/Player/Player.tscn" id="1_yau21"]
 [ext_resource type="PackedScene" uid="uid://bnos3cc283g16" path="res://Scenes/Paint/Clean.tscn" id="3_3ihx3"]
 [ext_resource type="Script" path="res://Scripts/SetUVPosition.gd" id="5_57uxa"]
 [ext_resource type="Script" path="res://Scripts/DrawViewport.gd" id="5_cunb3"]
-[ext_resource type="Shader" uid="uid://flygohejxq3o" path="res://Shaders/LevelShader.tres" id="5_rw3nu"]
+[ext_resource type="Shader" uid="uid://4yntqb35ast2" path="res://Shaders/LevelShader.tres" id="5_rw3nu"]
 [ext_resource type="Script" path="res://Scripts/UVPosition.gd" id="5_wwt0q"]
 [ext_resource type="Script" path="res://Scripts/Brush.gd" id="7_xsqdf"]
 [ext_resource type="Texture2D" uid="uid://wgiaxvi0hpud" path="res://Assets/Sprites/soft_brush.png" id="8_cx2wl"]
