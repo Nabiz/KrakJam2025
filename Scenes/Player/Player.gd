@@ -57,7 +57,9 @@ func _input(event):
 			
 func startBlowing():
 	if !GameState.haveBubbles:
+		GameState.want_bubble_but_empty.emit();
 		return;
+
 	GameState.startSpending()
 	self.blowing = true;
 	audioBlow.play();

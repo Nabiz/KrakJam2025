@@ -2,6 +2,8 @@ extends RigidBody3D
 
 class_name Bubble;
 
+signal destroyed;
+
 const MIN_SCALE: float = 0.2;
 const MAX_SCALE: float = 10.0;
 var distortion: float = 1.0;
@@ -14,6 +16,7 @@ var distortion: float = 1.0;
 @onready var scoreAudio: AudioStreamPlayer = $ScoreAudio
 
 var grabbedVisual: Node3D = null;
+var inflationComplete: bool = false;
 
 var bounces: int = 0;
 
@@ -30,6 +33,8 @@ func _ready():
 		return gfx.scale.x;
 
 func destroy():
+	destroyed.emit();
+	self.collision_layer = 0;
 	explosionAudio.play();
 	EventBus.emit_signal("bubble_destroyed");
 	#workaround to make audio play before being destroyed

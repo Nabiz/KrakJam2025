@@ -1,5 +1,6 @@
 extends Node
 
+signal want_bubble_but_empty;
 signal bubble_change;
 signal end_of_bubble;
 signal time_change;
@@ -30,11 +31,11 @@ func _ready():
 	ticker.start(1);
 	
 func startSpending():
-	bubblesTicker.start(0.1);
+	if haveBubbles:
+		bubblesTicker.start(0.1);
 
 func stopSpending():
 	bubblesTicker.stop();
-
 
 func _on_timer_timeout():
 	time -= 1;
@@ -52,5 +53,6 @@ func _on_bubbleTicker_timeout():
 	bubble_change.emit(bubbles);
 	if bubbles <= 0:
 		end_of_bubble.emit();
+		want_bubble_but_empty.emit();
 		stopSpending()
 	bubbles -= 1;
