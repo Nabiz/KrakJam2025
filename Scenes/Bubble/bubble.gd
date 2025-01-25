@@ -10,6 +10,8 @@ var distortion: float = 1.0;
 @onready var bounceAudio: AudioStreamPlayer3D = $BounceAudio;
 @onready var bounceAudioMob: AudioStreamPlayer3D = $MobBounceAudio;
 @onready var explosionAudio: AudioStreamPlayer3D = $ExplosionAudio
+@onready var catchAudio: AudioStreamPlayer3D = $CatchAudio
+@onready var scoreAudio: AudioStreamPlayer = $ScoreAudio
 
 var grabbedVisual: Node3D = null;
 
@@ -30,12 +32,17 @@ func _ready():
 func destroy():
 	explosionAudio.play();
 	EventBus.emit_signal("bubble_destroyed");
-	self.queue_free();
+	#workaround to make audio play before being destroyed
+	self.visible = false;
+	explosionAudio.connect("finished", Callable(self, "queue_free"))
 
 
 func score():
 	EventBus.emit_signal("enemy_wiped");
-	self.queue_free();
+	scoreAudio.play();
+	#workaround to make audio play before being destroyed
+	self.visible = false;
+	scoreAudio.connect("finished", Callable(self, "queue_free"))
 
 func _on_body_entered(body: Node):
 	if body is Player and grabbedVisual == null:
@@ -52,7 +59,7 @@ func _on_body_entered(body: Node):
 		grabbedVisual = body.getVisual();
 		grabbedVisual.reparent(self);
 		body.queue_free();
-		
+		catchAudio.play();
 		EventBus.emit_signal("enemy_grabbed");
 		self.add_to_group("FullBubble");
 		

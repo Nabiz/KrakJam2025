@@ -11,6 +11,8 @@ class_name Player;
 @onready var blowingArea = $Weapon/BlowingArea;
 @onready var bubbleSpawnPoint: Marker3D = $Weapon/BubbleSpawnPoint;
 @onready var audioBlow: AudioStreamPlayer = $AudioBlow;
+@onready var stepsAudio: AudioStreamPlayer = $StepsAudio;
+@onready var jumpAudio: AudioStreamPlayer = $JumpAudio;
 
 @export var blowing: bool = false:
 	set(enabled):
@@ -74,6 +76,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jumpAudio.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -85,5 +88,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	if velocity.length_squared() > 0.3 and !stepsAudio.playing and is_on_floor():
+		self.stepsAudio.play();
+	if velocity.length_squared() < 0.3 and stepsAudio.playing:
+		self.stepsAudio.stop();
+	
 
 	move_and_slide()
