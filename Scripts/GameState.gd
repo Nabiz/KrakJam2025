@@ -3,10 +3,15 @@ extends Node
 signal bubble_change;
 signal end_of_bubble;
 signal time_change;
+signal time_end;
+signal time_low;
+
+const ROUND_TIME = 180;
+const LOW_TIME = 30;
 
 # state
 var bubbles: float = 100;
-var time: int = 180;
+var time: int = ROUND_TIME;
 
 var ticker = Timer.new();
 
@@ -34,6 +39,14 @@ func stopSpending():
 func _on_timer_timeout():
 	time -= 1;
 	time_change.emit(time);
+	
+	if time < LOW_TIME:
+		time_low.emit()
+		
+	if time <= 0:
+		time_end.emit();
+		ticker.stop();
+	
 	
 func _on_bubbleTicker_timeout():
 	bubble_change.emit(bubbles);

@@ -58,10 +58,11 @@ trail_lifetime = 0.1
 
 [node name="TimeLeft" type="Label" parent="."]
 layout_mode = 0
-offset_left = 981.0
-offset_top = 24.0
-offset_right = 1126.0
-offset_bottom = 135.0
+offset_left = 978.0
+offset_top = 22.0
+offset_right = 1123.0
+offset_bottom = 133.0
 text = "01:60
 "
 label_settings = SubResource("LabelSettings_h3svh")
+horizontal_alignment = 3
