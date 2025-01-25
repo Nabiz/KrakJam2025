@@ -1,20 +1,27 @@
-[gd_scene load_steps=14 format=4 uid="uid://b1jlj0p7clg7m"]
+[gd_scene load_steps=20 format=4 uid="uid://b1jlj0p7clg7m"]
 
 [ext_resource type="PackedScene" uid="uid://nusimec88pyi" path="res://Scenes/Player/Player.tscn" id="1_yau21"]
+[ext_resource type="PackedScene" uid="uid://bnos3cc283g16" path="res://Scenes/Paint/Clean.tscn" id="3_3ihx3"]
 [ext_resource type="Script" path="res://Scripts/SetUVPosition.gd" id="5_57uxa"]
 [ext_resource type="Script" path="res://Scripts/DrawViewport.gd" id="5_cunb3"]
 [ext_resource type="Shader" uid="uid://flygohejxq3o" path="res://Shaders/LevelShader.tres" id="5_rw3nu"]
 [ext_resource type="Script" path="res://Scripts/UVPosition.gd" id="5_wwt0q"]
 [ext_resource type="Script" path="res://Scripts/Brush.gd" id="7_xsqdf"]
 [ext_resource type="Texture2D" uid="uid://wgiaxvi0hpud" path="res://Assets/Sprites/soft_brush.png" id="8_cx2wl"]
+[ext_resource type="Script" path="res://Scripts/MaskViewport.gd" id="8_eet3f"]
 [ext_resource type="PackedScene" uid="uid://bmy215wwas82f" path="res://Scenes/Paint/PaintEmitter.tscn" id="9_5c72h"]
+[ext_resource type="PackedScene" uid="uid://dl2emb0alybbs" path="res://Scenes/BubbleSpawner/BubbleSpawner.tscn" id="11_1oxtq"]
 [ext_resource type="PackedScene" uid="uid://b3mvefia6ufgh" path="res://Assets/Level/PoolLevel/LevelPool.gltf" id="11_o0w4e"]
+[ext_resource type="PackedScene" uid="uid://dajuca1wpgag1" path="res://Scenes/Bubble/Bubble.tscn" id="12_8irhd"]
+[ext_resource type="Texture2D" uid="uid://dv46gx63vsn04" path="res://Assets/Level/PoolLevel/Mask.png" id="12_80qnt"]
 [ext_resource type="Texture2D" uid="uid://oc7d3ho3ndlv" path="res://Assets/Level/PoolLevel/SwimmingPool.png" id="12_fe61k"]
+[ext_resource type="PackedScene" uid="uid://kas1fnlsdj7l" path="res://Scenes/Enemies/PileOfPoo/PileOfPoo.tscn" id="13_i2x4i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_84ds0"]
 render_priority = 0
 shader = ExtResource("5_rw3nu")
 shader_parameter/MainColor = ExtResource("12_fe61k")
+shader_parameter/Mask = ExtResource("12_80qnt")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0cxjk"]
 _surfaces = [{
@@ -52,17 +59,23 @@ shadow_mesh = SubResource("ArrayMesh_0cxjk")
 
 [node name="MainTestScene" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_yau21")]
+[node name="Player" parent="." node_paths=PackedStringArray("clean_emitter") instance=ExtResource("1_yau21")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6522, 3.42846, -2.97766)
 wall_min_slide_angle = 0.523599
+clean_emitter = NodePath("Weapon/BubbleSpawnPoint/PaintEmitter")
 
-[node name="PaintEmitter" parent="Player" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport") instance=ExtResource("9_5c72h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0249977, 0.240597, -1.68339)
-LevelUVPosition = NodePath("../../LevelUVPosition")
-draw_viewport = NodePath("../../DrawViewport")
+[node name="PaintEmitter" parent="Player/Weapon/BubbleSpawnPoint" index="0" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("9_5c72h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0742111, -0.0684438, 0.0555978)
+paint_scene = ExtResource("3_3ihx3")
+speed_variance = 10.0
+rotation_variance = 10.0
+LevelUVPosition = NodePath("../../../../LevelUVPosition")
+draw_viewport = NodePath("../../../../DrawViewport")
+mask_viewport = NodePath("../../../../MaskViewport")
+number = 10
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 6.51119, 10.3943)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 19.1582, 11.3414, -1.82276)
 
 [node name="LevelUVPosition" type="Node" parent="."]
 script = ExtResource("5_wwt0q")
@@ -78,14 +91,65 @@ script = ExtResource("5_cunb3")
 [node name="Brush" type="Node2D" parent="DrawViewport"]
 script = ExtResource("7_xsqdf")
 texture = ExtResource("8_cx2wl")
-brush_size = 20
+brush_size = 15
+
+[node name="MaskViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(2048, 2048)
+render_target_clear_mode = 1
+render_target_update_mode = 4
+script = ExtResource("8_eet3f")
+
+[node name="Brush" type="Node2D" parent="MaskViewport"]
+script = ExtResource("7_xsqdf")
+texture = ExtResource("8_cx2wl")
+brush_size = 15
+
+[node name="CleanBrush" type="Node2D" parent="MaskViewport"]
+script = ExtResource("7_xsqdf")
+texture = ExtResource("8_cx2wl")
+brush_size = 2
 
 [node name="LevelPool" parent="." instance=ExtResource("11_o0w4e")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="Plane" parent="LevelPool" index="0" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport")]
+[node name="Plane" parent="LevelPool" index="0" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport")]
 mesh = SubResource("ArrayMesh_cpmfs")
 script = ExtResource("5_57uxa")
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
+mask_viewport = NodePath("../../MaskViewport")
 
+[node name="StaticBody3D" parent="LevelPool/Plane" index="0"]
+collision_mask = 5
+
+[node name="BubbleSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_1oxtq")]
+player = NodePath("../Player")
+Bubble = ExtResource("12_8irhd")
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="PileOfPoo" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport", "target_node") instance=ExtResource("13_i2x4i")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 26.5538, 0.695306, 7.66034)
+LevelUVPosition = NodePath("../../LevelUVPosition")
+draw_viewport = NodePath("../../DrawViewport")
+mask_viewport = NodePath("../../MaskViewport")
+target_node = NodePath("../../Player")
+
+[node name="PileOfPoo2" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport", "target_node") instance=ExtResource("13_i2x4i")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 24.9537, 0.695306, -2.96815)
+LevelUVPosition = NodePath("../../LevelUVPosition")
+draw_viewport = NodePath("../../DrawViewport")
+mask_viewport = NodePath("../../MaskViewport")
+target_node = NodePath("../../Player")
+
+[node name="PileOfPoo3" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport", "target_node") instance=ExtResource("13_i2x4i")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.8548, 0.695306, 0.377456)
+LevelUVPosition = NodePath("../../LevelUVPosition")
+draw_viewport = NodePath("../../DrawViewport")
+mask_viewport = NodePath("../../MaskViewport")
+target_node = NodePath("../../Player")
+
+[editable path="Player"]
 [editable path="LevelPool"]

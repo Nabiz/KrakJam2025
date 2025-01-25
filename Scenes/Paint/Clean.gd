@@ -32,6 +32,5 @@ func _physics_process(delta):
 			var col = get_slide_collision(i)
 			var uv = LevelUVPosition.get_uv_coords(col.get_position(), col.get_normal(), true)
 			if uv:
-				draw_viewport.paint(uv, color)
-				mask_viewport.paint(uv, Color.WHITE)
+				mask_viewport.paint(uv, Color.BLACK)
 		queue_free()

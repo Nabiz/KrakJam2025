@@ -6,6 +6,7 @@
 [node name="PaintEmitter" type="Node3D"]
 script = ExtResource("1_cxn1p")
 paint_scene = ExtResource("2_rpykx")
+emit = false
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05

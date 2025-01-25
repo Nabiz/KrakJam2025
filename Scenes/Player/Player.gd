@@ -20,6 +20,8 @@ class_name Player;
 	get():
 		return blowingArea.process_mode == PROCESS_MODE_INHERIT;
 		
+@export_subgroup("PowerWasher")
+@export var clean_emitter: PaintEmitter = null
 
 var mouse_sensitivity = 700
 var gamepad_sensitivity := 0.075
@@ -44,9 +46,13 @@ func _input(event):
 	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 	if Input.is_action_just_pressed("Blow"):
 		self.blowing = true;
+		if clean_emitter:
+			clean_emitter.emit = true
 	
 	if Input.is_action_just_released("Blow"):
 		self.blowing = false;
+		if clean_emitter:
+			clean_emitter.emit = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
