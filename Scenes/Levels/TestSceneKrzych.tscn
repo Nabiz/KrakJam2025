@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=4 uid="uid://c38rqswam0swk"]
+[gd_scene load_steps=25 format=4 uid="uid://c38rqswam0swk"]
 
+[ext_resource type="PackedScene" uid="uid://d12w28pg545n3" path="res://Scenes/UI/Ui.tscn" id="1_5xoha"]
 [ext_resource type="PackedScene" uid="uid://nusimec88pyi" path="res://Scenes/Player/Player.tscn" id="1_7u3gx"]
 [ext_resource type="PackedScene" uid="uid://bmy215wwas82f" path="res://Scenes/Paint/PaintEmitter.tscn" id="2_t7dhg"]
 [ext_resource type="PackedScene" uid="uid://bnos3cc283g16" path="res://Scenes/Paint/Clean.tscn" id="3_y42un"]
@@ -70,6 +71,8 @@ radius = 1.0
 height = 2.0
 
 [node name="MainTestScene" type="Node3D"]
+
+[node name="Ui" parent="." instance=ExtResource("1_5xoha")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("clean_emitter") instance=ExtResource("1_7u3gx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6522, 3.42846, -2.97766)

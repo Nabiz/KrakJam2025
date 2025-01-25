@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://d12w28pg545n3"]
+
+[ext_resource type="Script" path="res://Scenes/UI/ui.gd" id="1_kybuf"]
+[ext_resource type="Texture2D" uid="uid://d1rg1hybkyyvt" path="res://Scenes/UI/emptyMeter.png" id="1_vijxo"]
+[ext_resource type="Texture2D" uid="uid://bq8022y25n7iq" path="res://Scenes/UI/bubbleMeterFull.png" id="2_aooul"]
+[ext_resource type="Texture2D" uid="uid://v86l8grofa7s" path="res://Scenes/UI/bubbleOnMeter.png" id="3_nxj6o"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_spr1a"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 30.0
+angle_min = -109.0
+angle_max = 183.2
+spread = 0.0
+gravity = Vector3(0, -100, 0)
+linear_accel_min = 45.41
+linear_accel_max = 100.0
+scale_min = 0.0
+scale_max = 0.5
+turbulence_noise_strength = 9.09
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kybuf")
+
+[node name="BubbleMeter" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 358.0
+offset_right = 105.0
+offset_bottom = 614.0
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("1_vijxo")
+texture_progress = ExtResource("2_aooul")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BubbleMeter"]
+position = Vector2(37, 223)
+process_material = SubResource("ParticleProcessMaterial_spr1a")
+texture = ExtResource("3_nxj6o")
+lifetime = 1.5
+speed_scale = 0.5
+trail_enabled = true
+trail_lifetime = 0.1

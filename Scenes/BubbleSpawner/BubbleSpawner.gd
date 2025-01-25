@@ -12,6 +12,9 @@ var currentBubble: Bubble = null;
 
 func getDirection():
 	return (player.bubbleSpawnPoint.global_position - player.global_position).normalized();
+	
+func _ready():
+	GameState.end_of_bubble.connect(stopInflation);
 
 func _process(delta):
 	if currentBubble:
@@ -21,16 +24,31 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("Spawn"):
-		audioInflate.play();
-		currentBubble = Bubble.instantiate();
-		currentBubble.distortion = 2.0;
-		add_child(currentBubble);
+		startInflation();
 	if event.is_action_released("Spawn"):
-		audioInflate.stop();
-		audioRelease.play();
-		currentBubble.apply_force(getDirection() * 0.2);
-		currentBubble.distortion = 1.0;
-		currentBubble = null;
+		stopInflation();
+
+func startInflation():
+	if !GameState.haveBubbles:
+		return;
+		
+	GameState.startSpending();
+
+	audioInflate.play();
+	currentBubble = Bubble.instantiate();
+	currentBubble.distortion = 2.0;
+	add_child(currentBubble);
+	
+func stopInflation():
+	if currentBubble == null:
+		return;
+	
+	GameState.stopSpending();
+	audioInflate.stop();
+	audioRelease.play();
+	currentBubble.apply_force(getDirection() * 0.2);
+	currentBubble.distortion = 1.0;
+	currentBubble = null;
 
 func _physics_process(delta):
 	if currentBubble:
