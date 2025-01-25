@@ -18,5 +18,3 @@ func _physics_process(delta: float) -> void:
 	velocity = SPEED * (target_node.global_position-self.global_position).normalized()
 
 	move_and_slide()
-
-	print(rotation)
