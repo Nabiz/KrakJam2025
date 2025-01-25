@@ -117,7 +117,7 @@ subdivide_width = 20
 subdivide_depth = 20
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ow1hc"]
-size = Vector3(18.132, 3.384, 13.7563)
+size = Vector3(4.68611, 3.384, 9.26469)
 
 [sub_resource type="Curve" id="Curve_gdgxe"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.14433, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.71975), 0.0, 0.0, 0, 0]
@@ -370,6 +370,14 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.0766, 3.76219, 24.9726)
 mesh = SubResource("PlaneMesh_ve1ll")
 skeleton = NodePath("../..")
+
+[node name="Area3D2" type="Area3D" parent="Water/WeterMeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709127, 0.0536232)
+script = ExtResource("21_pfego")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/WeterMeshInstance3D2/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.250404, 0, 0.329567)
+shape = SubResource("BoxShape3D_ow1hc")
 
 [node name="Area3D" type="Area3D" parent="Water"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5905, 6.72773, 26.9153)
