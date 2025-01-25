@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 2.0
+const SPEED = 1.0
 const JUMP_VELOCITY = 4.5
 
 @export var LevelUVPosition: UVPosition = null
@@ -18,7 +18,7 @@ const JUMP_VELOCITY = 4.5
 
 func _ready() -> void:
 	set_new_target()
-	animation.play("Jumping");
+	animation.play("crawl_in_place");
 	animation.seek(randf());
 	poo_emiter.LevelUVPosition = self.LevelUVPosition
 	poo_emiter.draw_viewport = self.draw_viewport
@@ -28,7 +28,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	wander()
-	
 
 func wander():
 	var look_pos = Vector3(agent.target_position.x, global_position.y, agent.target_position.z)
@@ -44,7 +43,7 @@ func wander():
 
 func emit_paint():
 	poo_emiter.emit_single_paint();
-	audioFart.play();
+	#audioFart.play();
 	
 #
 func getVisual():
