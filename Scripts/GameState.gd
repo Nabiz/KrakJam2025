@@ -77,4 +77,4 @@ func _on_loadingTicker_timeout():
 	if bubbles >= 100:
 		bubbles = 100;
 		stopLoading();
-	bubbles += 2;
+	bubbles += 5;
