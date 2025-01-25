@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dajuca1wpgag1"]
+
+[ext_resource type="Script" path="res://Scenes/Bubble/bubble.gd" id="1_u24qe"]
+[ext_resource type="PackedScene" uid="uid://bckenc12isu54" path="res://Scenes/Bubble/BubbleGFX.tscn" id="2_8st3x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ru74g"]
+bounce = 1.0
+
+[node name="Bubble" type="RigidBody3D"]
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_ru74g")
+gravity_scale = 0.1
+script = ExtResource("1_u24qe")
+
+[node name="BubbleGFX" parent="." instance=ExtResource("2_8st3x")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
