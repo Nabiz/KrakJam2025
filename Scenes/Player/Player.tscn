@@ -309,7 +309,7 @@ stream = ExtResource("2_dhlsm")
 
 [node name="StepsAudio" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_ela6e")
-volume_db = -5.0
+volume_db = -2.0
 
 [node name="JumpAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_nilsp")
