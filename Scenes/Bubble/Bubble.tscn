@@ -70,9 +70,9 @@ stream_4/stream = ExtResource("25_mxvph")
 [node name="Bubble" type="RigidBody3D" groups=["EnemiesCatcher"]]
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_ru74g")
-gravity_scale = 0.1
 contact_monitor = true
 max_contacts_reported = 1
+constant_force = Vector3(0, 0.009, 0)
 script = ExtResource("1_u24qe")
 
 [node name="BubbleGFX" parent="." instance=ExtResource("2_8st3x")]
