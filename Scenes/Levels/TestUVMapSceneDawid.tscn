@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://lm7q43u0nst0"]
+[gd_scene load_steps=39 format=4 uid="uid://lm7q43u0nst0"]
 
 [ext_resource type="PackedScene" uid="uid://nusimec88pyi" path="res://Scenes/Player/Player.tscn" id="1_fwahb"]
 [ext_resource type="PackedScene" uid="uid://bmy215wwas82f" path="res://Scenes/Paint/PaintEmitter.tscn" id="2_8ccek"]
@@ -8,13 +8,14 @@
 [ext_resource type="Script" path="res://Scripts/Brush.gd" id="6_oyvn3"]
 [ext_resource type="Texture2D" uid="uid://wgiaxvi0hpud" path="res://Assets/Sprites/soft_brush.png" id="7_gr58l"]
 [ext_resource type="Script" path="res://Scripts/MaskViewport.gd" id="8_6nslf"]
-[ext_resource type="Shader" uid="uid://flygohejxq3o" path="res://Shaders/LevelShader.tres" id="10_y6err"]
+[ext_resource type="Shader" uid="uid://4yntqb35ast2" path="res://Shaders/LevelShader.tres" id="10_y6err"]
 [ext_resource type="Script" path="res://Scripts/SetUVPosition.gd" id="13_pf144"]
 [ext_resource type="PackedScene" uid="uid://dl2emb0alybbs" path="res://Scenes/BubbleSpawner/BubbleSpawner.tscn" id="14_eovpn"]
 [ext_resource type="PackedScene" uid="uid://dajuca1wpgag1" path="res://Scenes/Bubble/Bubble.tscn" id="15_8nbgi"]
 [ext_resource type="Shader" path="res://Shaders/WaterShader.gdshader" id="16_b4n1n"]
 [ext_resource type="PackedScene" uid="uid://kas1fnlsdj7l" path="res://Scenes/Enemies/PileOfPoo/PileOfPoo.tscn" id="16_ifqcg"]
 [ext_resource type="PackedScene" uid="uid://dxoamx0d8j0w7" path="res://Assets/Level/MainMap/MainLevel.gltf" id="17_i0q7r"]
+[ext_resource type="Shader" path="res://Shaders/SkyShader.gdshader" id="17_urtxu"]
 [ext_resource type="Texture2D" uid="uid://da1xs45hinwvq" path="res://Assets/Level/MainMap/Map.png" id="18_6icw0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8qcc1"]
@@ -102,6 +103,58 @@ size = Vector2(5, 10)
 subdivide_width = 20
 subdivide_depth = 20
 
+[sub_resource type="Curve" id="Curve_gdgxe"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.14433, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.71975), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_an0an"]
+curve = SubResource("Curve_gdgxe")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_70dsr"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_45al7"]
+seamless = true
+noise = SubResource("FastNoiseLite_70dsr")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mw26i"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3fbmd"]
+seamless = true
+noise = SubResource("FastNoiseLite_mw26i")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8dots"]
+shader = ExtResource("17_urtxu")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.03
+shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_3fbmd")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_45al7")
+shader_parameter/cloud_curves = SubResource("CurveTexture_an0an")
+shader_parameter/high_clouds_density = 0.2
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_45al7")
+shader_parameter/top_color = Color(0.34902, 0.588235, 1, 1)
+shader_parameter/bottom_color = Color(0, 0.329412, 0.968627, 1)
+shader_parameter/sun_scatter = Color(0.298039, 0.298039, 0.298039, 1)
+shader_parameter/astro_tint = Color(0.905882, 0.788235, 0.627451, 1)
+shader_parameter/astro_scale = 4.0
+shader_parameter/astro_intensity = 2.0
+shader_parameter/astro_sampler = ExtResource("7_gr58l")
+shader_parameter/stars_intensity = 0.0
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = null
+
+[sub_resource type="Sky" id="Sky_7b3ci"]
+sky_material = SubResource("ShaderMaterial_8dots")
+
+[sub_resource type="Environment" id="Environment_pdwew"]
+background_mode = 2
+sky = SubResource("Sky_7b3ci")
+sky_custom_fov = 55.0
+
 [node name="MainTestScene" type="Node3D"]
 
 [node name="Player" parent="." node_paths=PackedStringArray("clean_emitter") instance=ExtResource("1_fwahb")]
@@ -120,7 +173,7 @@ mask_viewport = NodePath("../../../../MaskViewport")
 number = 10
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 19.1582, 11.3414, -1.82276)
+transform = Transform3D(0.5161, 0.491284, -0.701627, -4.06323e-09, 0.819152, 0.573576, 0.856528, -0.296023, 0.422764, -76.1385, 23.152, -9.27056)
 
 [node name="LevelUVPosition" type="Node" parent="."]
 script = ExtResource("4_g5eip")
@@ -192,13 +245,20 @@ LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
-[node name="WeterMeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Water" type="Node3D" parent="."]
+
+[node name="WeterMeshInstance3D" type="MeshInstance3D" parent="Water"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.19612, 0.754472, 28.7173)
 mesh = SubResource("PlaneMesh_1046q")
+skeleton = NodePath("../..")
 
-[node name="WeterMeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="WeterMeshInstance3D2" type="MeshInstance3D" parent="Water"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.0766, 3.76219, 24.9726)
 mesh = SubResource("PlaneMesh_ve1ll")
+skeleton = NodePath("../..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pdwew")
 
 [editable path="Player"]
 [editable path="MainLevel"]
