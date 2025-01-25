@@ -5,8 +5,8 @@ signal end_of_bubble;
 signal time_change;
 
 # state
-var bubbles = 100;
-var time = 180;
+var bubbles: float = 100;
+var time: int = 180;
 
 var ticker = Timer.new();
 
