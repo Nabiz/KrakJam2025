@@ -15,6 +15,7 @@ radius = 0.25
 [node name="Paint" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_k3eeg")
+color = Color(0.219641, 0.0938365, 0.0126318, 1)
 
 [node name="View" type="MeshInstance3D" parent="."]
 visible = false

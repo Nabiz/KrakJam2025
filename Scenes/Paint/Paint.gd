@@ -33,5 +33,5 @@ func _physics_process(delta):
 			var uv = LevelUVPosition.get_uv_coords(col.get_position(), col.get_normal(), true)
 			if uv:
 				draw_viewport.paint(uv, color)
-				mask_viewport.paint(uv, Color.WHITE)
+				mask_viewport.paint(uv, Color(0.9,0.9,0.9))
 		queue_free()
