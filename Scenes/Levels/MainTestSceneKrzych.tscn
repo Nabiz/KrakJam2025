@@ -66,6 +66,5 @@ mesh = SubResource("BoxMesh_nkbbu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ScoringArea"]
 shape = SubResource("BoxShape3D_xood1")
 
-[node name="BubbleSpawner2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_qgm58")]
-player = NodePath("")
+[node name="BubbleSpawner2" parent="." instance=ExtResource("2_qgm58")]
 Bubble = ExtResource("3_u4f1o")

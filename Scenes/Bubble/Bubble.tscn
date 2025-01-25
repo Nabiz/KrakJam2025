@@ -1,10 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://dajuca1wpgag1"]
+[gd_scene load_steps=24 format=3 uid="uid://dajuca1wpgag1"]
 
 [ext_resource type="Script" path="res://Scenes/Bubble/bubble.gd" id="1_u24qe"]
 [ext_resource type="PackedScene" uid="uid://bckenc12isu54" path="res://Scenes/Bubble/BubbleGFX.tscn" id="2_8st3x"]
+[ext_resource type="AudioStream" uid="uid://b2hndwhdugno1" path="res://Assets/Audio/sx_bubble_bounce_01.wav" id="3_vo65f"]
+[ext_resource type="AudioStream" uid="uid://853tg7iekckb" path="res://Assets/Audio/sx_bubble_bounce_02.wav" id="4_mvylw"]
+[ext_resource type="AudioStream" uid="uid://cvtb4e1slbw06" path="res://Assets/Audio/sx_bubble_bounce_03.wav" id="5_76qo3"]
+[ext_resource type="AudioStream" uid="uid://hrauyba3kowi" path="res://Assets/Audio/sx_bubble_bounce_04.wav" id="6_hkmf6"]
+[ext_resource type="AudioStream" uid="uid://bhe3hktnohq78" path="res://Assets/Audio/sx_bubble_bounce_05.wav" id="7_t13qq"]
+[ext_resource type="AudioStream" uid="uid://dkw5sd8w7ejl5" path="res://Assets/Audio/sx_bubble_bounce_06.wav" id="8_xey27"]
+[ext_resource type="AudioStream" uid="uid://ch38xy8yemi58" path="res://Assets/Audio/sx_bubble_bounce_07.wav" id="9_eyb4y"]
+[ext_resource type="AudioStream" uid="uid://cckov5vfjxwor" path="res://Assets/Audio/vx_mob_bounce_01.wav" id="10_kd5t1"]
+[ext_resource type="AudioStream" uid="uid://qrk0bbmiqwow" path="res://Assets/Audio/vx_mob_bounce_02.wav" id="11_bpsnw"]
+[ext_resource type="AudioStream" uid="uid://c3wlkyo701c83" path="res://Assets/Audio/vx_mob_bounce_03.wav" id="12_wql2t"]
+[ext_resource type="AudioStream" uid="uid://r8fe34e6agq3" path="res://Assets/Audio/vx_mob_bounce_04.wav" id="13_u7wla"]
+[ext_resource type="AudioStream" uid="uid://d04h172xpysq7" path="res://Assets/Audio/vx_mob_bounce_05.wav" id="14_a4cle"]
+[ext_resource type="AudioStream" uid="uid://dvqkwolwvl7yc" path="res://Assets/Audio/vx_mob_bounce_06.wav" id="15_ijghe"]
+[ext_resource type="AudioStream" uid="uid://bg6ytbkrhfc8p" path="res://Assets/Audio/vx_mob_bounce_07.wav" id="16_43tie"]
+[ext_resource type="AudioStream" uid="uid://3ho6gcjg8jwn" path="res://Assets/Audio/sx_bubble_explosion_01.wav" id="17_hypu0"]
+[ext_resource type="AudioStream" uid="uid://bbsule41ww1y5" path="res://Assets/Audio/sx_bubble_explosion_02.wav" id="18_rx2jm"]
+[ext_resource type="AudioStream" uid="uid://cj7yej6wc4t07" path="res://Assets/Audio/sx_bubble_explosion_03.wav" id="19_7wkkw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ru74g"]
 bounce = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jn266"]
+streams_count = 7
+stream_0/stream = ExtResource("3_vo65f")
+stream_1/stream = ExtResource("4_mvylw")
+stream_2/stream = ExtResource("5_76qo3")
+stream_3/stream = ExtResource("6_hkmf6")
+stream_4/stream = ExtResource("7_t13qq")
+stream_5/stream = ExtResource("8_xey27")
+stream_6/stream = ExtResource("9_eyb4y")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_67rjt"]
+streams_count = 7
+stream_0/stream = ExtResource("10_kd5t1")
+stream_1/stream = ExtResource("11_bpsnw")
+stream_2/stream = ExtResource("12_wql2t")
+stream_3/stream = ExtResource("13_u7wla")
+stream_4/stream = ExtResource("14_a4cle")
+stream_5/stream = ExtResource("15_ijghe")
+stream_6/stream = ExtResource("16_43tie")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qrgyp"]
+streams_count = 3
+stream_0/stream = ExtResource("17_hypu0")
+stream_1/stream = ExtResource("18_rx2jm")
+stream_2/stream = ExtResource("19_7wkkw")
 
 [node name="Bubble" type="RigidBody3D" groups=["EnemiesCatcher"]]
 mass = 0.001
@@ -17,5 +60,15 @@ script = ExtResource("1_u24qe")
 [node name="BubbleGFX" parent="." instance=ExtResource("2_8st3x")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="BounceAudio" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_jn266")
+volume_db = -10.0
+
+[node name="MobBounceAudio" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_67rjt")
+
+[node name="ExplosionAudio" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_qrgyp")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

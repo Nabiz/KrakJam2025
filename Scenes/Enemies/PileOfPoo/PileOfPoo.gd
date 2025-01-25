@@ -13,8 +13,11 @@ const JUMP_VELOCITY = 4.5
 @onready var poo_emiter: PaintEmitter = $PaintEmitter
 @onready var gfx: Node3D = $GFX;
 
+@onready var audioFart: AudioStreamPlayer3D = $AudioFart
+
 func _ready() -> void:
-	animation.play("Jumping")
+	animation.play("Jumping");
+	animation.seek(randf());
 	poo_emiter.LevelUVPosition = self.LevelUVPosition
 	poo_emiter.draw_viewport = self.draw_viewport
 	poo_emiter.mask_viewport = self.mask_viewport
@@ -33,7 +36,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func emit_paint():
-	poo_emiter.emit_single_paint()
+	poo_emiter.emit_single_paint();
+	audioFart.play();
+	
 #
 func getVisual():
 	return gfx;

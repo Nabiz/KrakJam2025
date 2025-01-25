@@ -1,8 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://kas1fnlsdj7l"]
+[gd_scene load_steps=23 format=3 uid="uid://kas1fnlsdj7l"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/PileOfPoo/PileOfPoo.gd" id="1_7ftct"]
 [ext_resource type="PackedScene" uid="uid://cypyfp4vslvx2" path="res://Scenes/Enemies/PileOfPoo/PileOfPooGFX.tscn" id="2_nychc"]
 [ext_resource type="PackedScene" uid="uid://bmy215wwas82f" path="res://Scenes/Paint/PaintEmitter.tscn" id="3_f3fpo"]
+[ext_resource type="AudioStream" uid="uid://bky0qr5ittmr2" path="res://Assets/Audio/sx_mob_fart_01.wav" id="4_ttqww"]
+[ext_resource type="AudioStream" uid="uid://mo68btbpvehu" path="res://Assets/Audio/sx_mob_fart_02.wav" id="5_fhqix"]
+[ext_resource type="AudioStream" uid="uid://bgedhprq14nrb" path="res://Assets/Audio/sx_mob_fart_11.wav" id="6_ubcxn"]
+[ext_resource type="AudioStream" uid="uid://c1b75tc4ig0j3" path="res://Assets/Audio/sx_mob_fart_12.wav" id="7_viefr"]
+[ext_resource type="AudioStream" uid="uid://6ogmfqocxjpm" path="res://Assets/Audio/sx_mob_fart_13.wav" id="8_8mo7r"]
+[ext_resource type="AudioStream" uid="uid://np5jt1284aoh" path="res://Assets/Audio/sx_mob_fart_03.wav" id="9_fmdct"]
+[ext_resource type="AudioStream" uid="uid://dd24r7gvwpg45" path="res://Assets/Audio/sx_mob_fart_04.wav" id="10_0hv0e"]
+[ext_resource type="AudioStream" uid="uid://btup7ios4rxj1" path="res://Assets/Audio/sx_mob_fart_05.wav" id="11_e82tb"]
+[ext_resource type="AudioStream" uid="uid://cdci00w6vn4yd" path="res://Assets/Audio/sx_mob_fart_06.wav" id="12_a1n7c"]
+[ext_resource type="AudioStream" uid="uid://biad65e4k4mye" path="res://Assets/Audio/sx_mob_fart_07.wav" id="13_kmvef"]
+[ext_resource type="AudioStream" uid="uid://bpmueufuf8i4d" path="res://Assets/Audio/sx_mob_fart_08.wav" id="14_jm82i"]
+[ext_resource type="AudioStream" uid="uid://ba8d7qijhs4ef" path="res://Assets/Audio/sx_mob_fart_09.wav" id="15_dkqlf"]
+[ext_resource type="AudioStream" uid="uid://biw2e2hr0knp8" path="res://Assets/Audio/sx_mob_fart_10.wav" id="16_qo7p6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3ohy4"]
 height = 1.2
@@ -175,6 +188,22 @@ _data = {
 "RESET": SubResource("Animation_6aoh5")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5i8cd"]
+streams_count = 13
+stream_0/stream = ExtResource("4_ttqww")
+stream_1/stream = ExtResource("5_fhqix")
+stream_2/stream = ExtResource("9_fmdct")
+stream_3/stream = ExtResource("10_0hv0e")
+stream_4/stream = ExtResource("11_e82tb")
+stream_5/stream = ExtResource("12_a1n7c")
+stream_6/stream = ExtResource("13_kmvef")
+stream_7/stream = ExtResource("14_jm82i")
+stream_8/stream = ExtResource("15_dkqlf")
+stream_9/stream = ExtResource("16_qo7p6")
+stream_10/stream = ExtResource("6_ubcxn")
+stream_11/stream = ExtResource("7_viefr")
+stream_12/stream = ExtResource("8_8mo7r")
+
 [node name="PileOfPoo" type="CharacterBody3D" groups=["Catchable"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 4
@@ -195,3 +224,8 @@ libraries = {
 
 [node name="PaintEmitter" parent="." instance=ExtResource("3_f3fpo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06475, -0.158958)
+
+[node name="AudioFart" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_5i8cd")
+volume_db = -5.0
+max_db = 2.0

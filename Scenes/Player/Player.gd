@@ -10,6 +10,7 @@ class_name Player;
 @onready var weapon = $Weapon;
 @onready var blowingArea = $Weapon/BlowingArea;
 @onready var bubbleSpawnPoint: Marker3D = $Weapon/BubbleSpawnPoint;
+@onready var audioBlow: AudioStreamPlayer = $AudioBlow;
 
 @export var blowing: bool = false:
 	set(enabled):
@@ -46,10 +47,12 @@ func _input(event):
 	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 	if Input.is_action_just_pressed("Blow"):
 		self.blowing = true;
+		audioBlow.play();
 		if clean_emitter:
 			clean_emitter.emit = true
 	
 	if Input.is_action_just_released("Blow"):
+		audioBlow.stop();
 		self.blowing = false;
 		if clean_emitter:
 			clean_emitter.emit = false

@@ -7,6 +7,9 @@ const MAX_SCALE: float = 10.0;
 var distortion: float = 1.0;
 @onready var gfx: Node3D = $BubbleGFX;
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D;
+@onready var bounceAudio: AudioStreamPlayer3D = $BounceAudio;
+@onready var bounceAudioMob: AudioStreamPlayer3D = $MobBounceAudio;
+@onready var explosionAudio: AudioStreamPlayer3D = $ExplosionAudio
 
 var grabbedVisual: Node3D = null;
 
@@ -25,6 +28,7 @@ func _ready():
 		return gfx.scale.x;
 
 func destroy():
+	explosionAudio.play();
 	EventBus.emit_signal("bubble_destroyed");
 	self.queue_free();
 
@@ -41,6 +45,7 @@ func _on_body_entered(body: Node):
 	if body.is_in_group("ScoringArea") and grabbedVisual != null:
 			score();
 			return;
+			
 		
 	if body.is_in_group("Catchable") and grabbedVisual == null:
 		assert(body.has_method("getVisual"), "getVisual not defined. Items in catchable group have to have getVisual method implemented to access static placeholder when grabbed!")
@@ -56,7 +61,11 @@ func _on_body_entered(body: Node):
 		return;
 	
 	if (!body.is_in_group("Catchable") and grabbedVisual == null):
+		bounceAudio.play();
 		bounces = bounces + 1;
 		
 		if bounces > 3:
 			destroy();
+			
+	if (grabbedVisual != null):
+		bounceAudioMob.play();

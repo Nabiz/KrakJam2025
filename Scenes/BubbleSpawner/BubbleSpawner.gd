@@ -4,6 +4,8 @@ extends Node
 @export var Bubble: PackedScene;
 
 @export var blowingSpeed: float = 0.1;
+@onready var audioRelease: AudioStreamPlayer = $AudioRelease
+@onready var audioInflate: AudioStreamPlayer = $AudioInflate
 var spawning: bool = false;
 
 var currentBubble: Bubble = null;
@@ -19,10 +21,13 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("Spawn"):
+		audioInflate.play();
 		currentBubble = Bubble.instantiate();
 		currentBubble.distortion = 2.0;
 		add_child(currentBubble);
 	if event.is_action_released("Spawn"):
+		audioInflate.stop();
+		audioRelease.play();
 		currentBubble.apply_force(getDirection() * 0.2);
 		currentBubble.distortion = 1.0;
 		currentBubble = null;

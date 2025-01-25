@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c38rqswam0swk"]
+[gd_scene load_steps=25 format=4 uid="uid://c38rqswam0swk"]
 
 [ext_resource type="PackedScene" uid="uid://nusimec88pyi" path="res://Scenes/Player/Player.tscn" id="1_7u3gx"]
 [ext_resource type="PackedScene" uid="uid://bmy215wwas82f" path="res://Scenes/Paint/PaintEmitter.tscn" id="2_t7dhg"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dl2emb0alybbs" path="res://Scenes/BubbleSpawner/BubbleSpawner.tscn" id="14_2oqe7"]
 [ext_resource type="PackedScene" uid="uid://dajuca1wpgag1" path="res://Scenes/Bubble/Bubble.tscn" id="15_knlwb"]
 [ext_resource type="PackedScene" uid="uid://kas1fnlsdj7l" path="res://Scenes/Enemies/PileOfPoo/PileOfPoo.tscn" id="16_lbflm"]
+[ext_resource type="AudioStream" uid="uid://denvmins5erkm" path="res://Assets/Audio/KrakJam2025_Music_01.mp3" id="17_o2kk7"]
+[ext_resource type="Script" path="res://Scenes/Levels/main_music_player.gd" id="18_n3xi2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_84ds0"]
 render_priority = 0
@@ -170,6 +172,12 @@ shape = SubResource("SphereShape3D_ab28f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("SphereMesh_ouw1u")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("17_o2kk7")
+script = ExtResource("18_n3xi2")
 
 [editable path="Player"]
 [editable path="LevelPool"]
