@@ -8,9 +8,12 @@ var spawning: bool = false;
 
 var currentBubble: Bubble = null;
 
+func getDirection():
+	return (player.bubbleSpawnPoint.global_position - player.global_position).normalized();
+
 func _process(delta):
 	if currentBubble:
-		var direction = (player.bubbleSpawnPoint.global_position - player.global_position).normalized()
+		var direction = getDirection();
 		currentBubble.global_position = player.bubbleSpawnPoint.global_position + direction * currentBubble.targetScale;
 		currentBubble.look_at(currentBubble.global_position + direction);
 
@@ -20,6 +23,7 @@ func _input(event):
 		currentBubble.distortion = 2.0;
 		add_child(currentBubble);
 	if event.is_action_released("Spawn"):
+		currentBubble.apply_force(getDirection() * 0.2);
 		currentBubble.distortion = 1.0;
 		currentBubble = null;
 
