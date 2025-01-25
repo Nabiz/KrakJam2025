@@ -207,7 +207,7 @@ brush_size = 20
 [node name="BrushSoft" type="Node2D" parent="DrawViewport"]
 script = ExtResource("6_oyvn3")
 texture = ExtResource("7_gr58l")
-brush_size = 7
+brush_size = 9
 
 [node name="MaskViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -225,7 +225,7 @@ brush_size = 20
 [node name="BrushSoft" type="Node2D" parent="MaskViewport"]
 script = ExtResource("6_oyvn3")
 texture = ExtResource("7_gr58l")
-brush_size = 7
+brush_size = 9
 
 [node name="CleanBrush" type="Node2D" parent="MaskViewport"]
 script = ExtResource("6_oyvn3")
