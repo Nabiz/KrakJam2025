@@ -39,6 +39,8 @@ func _ready():
 	blowingArea.process_mode = PROCESS_MODE_DISABLED;
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
+	GameState.end_of_bubble.connect(stopBlowing)
+	
 func _input(event):
 	if event is InputEventMouseMotion and mouse_captured:
 		input_mouse = event.relative / mouse_sensitivity
@@ -48,16 +50,29 @@ func _input(event):
 	
 	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 	if Input.is_action_just_pressed("Blow"):
-		self.blowing = true;
-		audioBlow.play();
-		if clean_emitter:
-			clean_emitter.emit = true
+		startBlowing()
 	
 	if Input.is_action_just_released("Blow"):
-		audioBlow.stop();
-		self.blowing = false;
-		if clean_emitter:
-			clean_emitter.emit = false
+		stopBlowing()
+			
+func startBlowing():
+	if !GameState.haveBubbles:
+		return;
+	GameState.startSpending()
+	self.blowing = true;
+	audioBlow.play();
+	if clean_emitter:
+		clean_emitter.emit = true
+
+func stopBlowing():
+	if !self.blowing:
+		return;
+	GameState.stopSpending()
+
+	audioBlow.stop();
+	self.blowing = false;
+	if clean_emitter:
+		clean_emitter.emit = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
