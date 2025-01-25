@@ -29,6 +29,7 @@ folder_colors={
 
 EnemiesCatcher=""
 Catchable=""
+ScoringArea=""
 
 [input]
 

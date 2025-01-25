@@ -28,11 +28,19 @@ func destroy():
 	EventBus.emit_signal("bubble_destroyed");
 	self.queue_free();
 
+
+func score():
+	EventBus.emit_signal("enemy_wiped");
+	self.queue_free();
+
 func _on_body_entered(body: Node):
 	if body is Player and grabbedVisual == null:
 		destroy();
 		return;
-
+	
+	if body.is_in_group("ScoringArea") and grabbedVisual != null:
+			score();
+			return;
 		
 	if body.is_in_group("Catchable") and grabbedVisual == null:
 		assert(body.has_method("getVisual"), "getVisual not defined. Items in catchable group have to have getVisual method implemented to access static placeholder when grabbed!")
@@ -45,6 +53,7 @@ func _on_body_entered(body: Node):
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(grabbedVisual, "position", Vector3.DOWN * 0.3, 0.8).set_trans(Tween.TRANS_SPRING)
+		return;
 	
 	if (!body.is_in_group("Catchable") and grabbedVisual == null):
 		bounces = bounces + 1;
