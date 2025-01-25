@@ -26,7 +26,6 @@ func _ready():
 	
 func startSpending():
 	bubblesTicker.start(0.1);
-	print("start")
 
 func stopSpending():
 	bubblesTicker.stop();
@@ -35,10 +34,8 @@ func stopSpending():
 func _on_timer_timeout():
 	time -= 1;
 	time_change.emit(time);
-	print(time);
 	
 func _on_bubbleTicker_timeout():
-	print(bubbles);
 	bubble_change.emit(bubbles);
 	if bubbles <= 0:
 		end_of_bubble.emit();
