@@ -72,6 +72,8 @@ func _on_body_entered(body: Node):
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(grabbedVisual, "position", Vector3.DOWN * 0.3, 0.8).set_trans(Tween.TRANS_SPRING)
+		#if (targetScale < 2):
+			#tween.tween_property(self, "targetScale", 1.3, 0.8).set_trans(Tween.TRANS_SPRING)
 		return;
 	
 	if (!body.is_in_group("Catchable") and grabbedVisual == null):

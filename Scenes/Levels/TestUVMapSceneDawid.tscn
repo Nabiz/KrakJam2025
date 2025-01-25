@@ -176,7 +176,7 @@ sky = SubResource("Sky_7b3ci")
 sky_custom_fov = 55.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_27jqf"]
-size = Vector3(80, 14, 120)
+size = Vector3(78.9012, 14, 103.05)
 
 [node name="MainTestScene" type="Node3D"]
 
@@ -403,7 +403,7 @@ environment = SubResource("Environment_pdwew")
 script = ExtResource("25_wus6p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0444, 5.17588, 0)
+transform = Transform3D(1, 0, 0, 0, 0.990283, -0.139069, 0, 0.139069, 0.990283, 1.49499, 7.78325, -8.3928)
 shape = SubResource("BoxShape3D_27jqf")
 
 [editable path="Player"]
