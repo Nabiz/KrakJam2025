@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://lm7q43u0nst0"]
+[gd_scene load_steps=49 format=4 uid="uid://lm7q43u0nst0"]
 
 [ext_resource type="PackedScene" uid="uid://nusimec88pyi" path="res://Scenes/Player/Player.tscn" id="1_fwahb"]
 [ext_resource type="PackedScene" uid="uid://bmy215wwas82f" path="res://Scenes/Paint/PaintEmitter.tscn" id="2_8ccek"]
@@ -109,6 +109,9 @@ material = SubResource("ShaderMaterial_85lqt")
 size = Vector2(18, 15)
 subdivide_width = 20
 subdivide_depth = 20
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6afll"]
+size = Vector3(17, 4, 14)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ve1ll"]
 material = SubResource("ShaderMaterial_85lqt")
@@ -366,6 +369,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.19612, 0.754472, 28.7173)
 mesh = SubResource("PlaneMesh_1046q")
 skeleton = NodePath("../..")
 
+[node name="Area3D" type="Area3D" parent="Water/WeterMeshInstance3D"]
+script = ExtResource("21_pfego")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/WeterMeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_6afll")
+
 [node name="WeterMeshInstance3D2" type="MeshInstance3D" parent="Water"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.0766, 3.76219, 24.9726)
 mesh = SubResource("PlaneMesh_ve1ll")
@@ -377,14 +386,6 @@ script = ExtResource("21_pfego")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Water/WeterMeshInstance3D2/Area3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.250404, 0, 0.329567)
-shape = SubResource("BoxShape3D_ow1hc")
-
-[node name="Area3D" type="Area3D" parent="Water"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5905, 6.72773, 26.9153)
-script = ExtResource("21_pfego")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55693, -4.51066, 2.41234)
 shape = SubResource("BoxShape3D_ow1hc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

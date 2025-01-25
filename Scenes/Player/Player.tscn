@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://nusimec88pyi"]
+[gd_scene load_steps=31 format=4 uid="uid://nusimec88pyi"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_ex36m"]
 [ext_resource type="AudioStream" uid="uid://bd8xjtonwku42" path="res://Assets/Audio/sx_gun_blow_loop_01.wav" id="2_dhlsm"]
@@ -13,6 +13,10 @@
 [ext_resource type="AudioStream" uid="uid://dvpcc8pycg8ar" path="res://Assets/Audio/sx_plr_fs_material_tile_09.wav" id="11_naap4"]
 [ext_resource type="AudioStream" uid="uid://drl2dwl3w0l86" path="res://Assets/Audio/sx_plr_fs_material_tile_10.wav" id="12_taoxm"]
 [ext_resource type="AudioStream" uid="uid://nfpjdlkk1irl" path="res://Assets/Audio/sx_plr_jump_01.wav" id="13_nilsp"]
+[ext_resource type="AudioStream" uid="uid://c51akam71hn3a" path="res://Assets/Audio/sx_plr_weapon_ammo_refill_01.wav" id="14_hg61v"]
+[ext_resource type="AudioStream" uid="uid://c8majpk4io2jb" path="res://Assets/Audio/sx_plr_weapon_ammo_none_01.wav" id="15_0eoh4"]
+[ext_resource type="Script" path="res://Scenes/Player/refill_audio.gd" id="15_josvn"]
+[ext_resource type="Script" path="res://Scenes/Player/no_ammo_audio.gd" id="17_87ksu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aktj1"]
 
@@ -319,3 +323,11 @@ volume_db = -2.0
 [node name="JumpAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_nilsp")
 volume_db = -10.0
+
+[node name="RefillAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_hg61v")
+script = ExtResource("15_josvn")
+
+[node name="NoAmmoAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_0eoh4")
+script = ExtResource("17_87ksu")

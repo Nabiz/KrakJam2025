@@ -11,7 +11,8 @@ var distortion: float = 1.0;
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D;
 @onready var bounceAudio: AudioStreamPlayer3D = $BounceAudio;
 @onready var bounceAudioMob: AudioStreamPlayer3D = $MobBounceAudio;
-@onready var explosionAudio: AudioStreamPlayer3D = $ExplosionAudio
+@onready var explosionAudio: AudioStreamPlayer3D = $ExplosionAudio;
+@onready var smallExplosionAudio: AudioStreamPlayer3D = $SmallExplosionAudio;
 @onready var catchAudio: AudioStreamPlayer3D = $CatchAudio
 @onready var scoreAudio: AudioStreamPlayer = $ScoreAudio
 
@@ -35,11 +36,12 @@ func _ready():
 func destroy():
 	destroyed.emit();
 	self.collision_layer = 0;
-	explosionAudio.play();
+	var audio = smallExplosionAudio if self.targetScale < 1.5 else explosionAudio ;
+	audio.play();
 	EventBus.emit_signal("bubble_destroyed");
 	#workaround to make audio play before being destroyed
 	self.visible = false;
-	explosionAudio.connect("finished", Callable(self, "queue_free"))
+	audio.connect("finished", Callable(self, "queue_free"))
 
 
 func score():

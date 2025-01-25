@@ -7,6 +7,9 @@ signal time_change;
 signal time_end;
 signal time_low;
 
+signal start_loading;
+signal stop_loading;
+
 const ROUND_TIME = 180;
 const LOW_TIME = 30;
 
@@ -40,9 +43,11 @@ func stopSpending():
 	bubblesTicker.stop();
 	
 func startLoading():
+	start_loading.emit()
 	loadingTicker.start(0.1);
 	
 func stopLoading():
+	stop_loading.emit()
 	loadingTicker.stop();
 	
 
