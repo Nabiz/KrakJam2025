@@ -15,8 +15,8 @@ var bubbles: float = 100;
 var time: int = ROUND_TIME;
 
 var ticker = Timer.new();
-
 var bubblesTicker = Timer.new();
+var loadingTicker = Timer.new();
 
 var haveBubbles:
 	get():
@@ -25,8 +25,10 @@ var haveBubbles:
 func _ready():
 	add_child(ticker);
 	add_child(bubblesTicker);
+	add_child(loadingTicker);
 	ticker.timeout.connect(_on_timer_timeout);
 	bubblesTicker.timeout.connect(_on_bubbleTicker_timeout);
+	loadingTicker.timeout.connect(_on_loadingTicker_timeout);
 
 	ticker.start(1);
 	
@@ -36,6 +38,13 @@ func startSpending():
 
 func stopSpending():
 	bubblesTicker.stop();
+	
+func startLoading():
+	loadingTicker.start(0.1);
+	
+func stopLoading():
+	loadingTicker.stop();
+	
 
 func _on_timer_timeout():
 	time -= 1;
@@ -55,4 +64,12 @@ func _on_bubbleTicker_timeout():
 		end_of_bubble.emit();
 		want_bubble_but_empty.emit();
 		stopSpending()
-	bubbles -= 1;
+	bubbles -= 0.5;
+	
+
+func _on_loadingTicker_timeout():
+	bubble_change.emit(bubbles);
+	if bubbles >= 100:
+		bubbles = 100;
+		stopLoading();
+	bubbles += 2;
