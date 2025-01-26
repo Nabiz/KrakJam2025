@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://crp7hawf735qc"]
+
+[ext_resource type="Script" path="res://Scenes/Instructions/instruction.gd" id="1_ipuoi"]
+[ext_resource type="Texture2D" uid="uid://b48n2jsyn4qks" path="res://Scenes/Instructions/charging.png" id="1_ww4vr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wyrd6"]
+transparency = 1
+albedo_texture = ExtResource("1_ww4vr")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n4ab7"]
+lightmap_size_hint = Vector2i(12, 12)
+orientation = 0
+
+[node name="Instruction" type="Node3D"]
+script = ExtResource("1_ipuoi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_wyrd6")
+mesh = SubResource("PlaneMesh_n4ab7")

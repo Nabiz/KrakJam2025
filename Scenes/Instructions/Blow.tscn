@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://fbguep3rqr1m"]
+
+[ext_resource type="Script" path="res://Scenes/Instructions/instruction.gd" id="1_581wi"]
+[ext_resource type="Texture2D" uid="uid://xwjr6t83oh83" path="res://Scenes/Instructions/blow.png" id="2_d7m1h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhv75"]
+transparency = 1
+albedo_texture = ExtResource("2_d7m1h")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n4ab7"]
+lightmap_size_hint = Vector2i(12, 12)
+size = Vector2(5, 3)
+orientation = 0
+
+[node name="Instruction" type="Node3D"]
+script = ExtResource("1_581wi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_rhv75")
+mesh = SubResource("PlaneMesh_n4ab7")
