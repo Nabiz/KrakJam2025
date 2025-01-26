@@ -16,7 +16,10 @@ signal enemy_number_changed(numberOfEnemies);
 signal start_loading;
 signal stop_loading;
 
-const ROUND_TIME = 180;
+
+signal start_game;
+
+const ROUND_TIME = 360;
 const LOW_TIME = 30;
 
 # state
@@ -38,11 +41,10 @@ func _ready():
 	ticker.timeout.connect(_on_timer_timeout);
 	bubblesTicker.timeout.connect(_on_bubbleTicker_timeout);
 	loadingTicker.timeout.connect(_on_loadingTicker_timeout);
+	start_game.connect(startGame)
 	
 	self.enemy_wiped.connect(emitNumberOfEnemies);
 	emitNumberOfEnemies();
-
-	ticker.start(1);
 	
 func startSpending():
 	if haveBubbles:
@@ -92,3 +94,10 @@ func emitNumberOfEnemies():
 	self.enemy_number_changed.emit(get_tree().get_node_count_in_group("Enemy"));
 	print(get_tree().get_node_count_in_group("Enemy"));
 	pass;
+
+func startGame():
+	get_tree().change_scene_to_file("res://Scenes/Levels/TestUVMapSceneDawid.tscn")
+	bubbles = 100;
+	time = ROUND_TIME;
+	ticker.start(1);
+	

@@ -2582,84 +2582,98 @@ Bubble = ExtResource("15_8nbgi")
 
 [node name="PileOfPoo" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.59295, 1.12225, 16.1799)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo12" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.966, 1.2019, 13.2804)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo13" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.232, 1.13693, 26.0155)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo14" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 31.8935, 3.21495, 27.5183)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 31.8935, 3.21495, 30.643)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo15" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 23.8894, 3.21495, 35.1419)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 34.1993, 3.21495, 35.1419)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo2" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.19306, 1.3711, 10.9364)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo3" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.8548, 1.31726, 4.44966)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo4" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -14.7537, 5.31463, -44.8383)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.2857, 5.31463, -48.611)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo5" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -10.6551, 5.31463, -47.8344)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.10919, 5.31463, -43.2583)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo6" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.86806, 5.31463, -32.6015)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo7" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.8487, 5.31463, -26.2495)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo8" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.9147, 5.31463, -26.2495)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo10" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.91466, 5.31463, -14.2963)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo11" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.9042, 5.31463, -14.2963)
+wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
