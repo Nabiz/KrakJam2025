@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="KrakJam2025"
-run/main_scene="res://Scenes/Levels/TestUVMapSceneDawid.tscn"
+run/main_scene="res://Scenes/Intro/Intro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.0193295, 0.293456, 0.493007, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
