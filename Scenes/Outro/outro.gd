@@ -1,7 +1,7 @@
 extends CenterContainer
 
 func play():
-	$Control/GPUParticles2D.emitting = true;
+	#$Control/GPUParticles2D.emitting = true;
 	$AnimationPlayer.play("enter");
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
