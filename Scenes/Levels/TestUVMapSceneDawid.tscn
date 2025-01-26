@@ -2504,7 +2504,7 @@ sdfgi_use_occlusion = true
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_27jqf"]
-size = Vector3(78.9012, 14, 103.05)
+size = Vector3(78.9012, 20.5926, 103.05)
 
 [node name="MainTestScene" type="Node3D"]
 
@@ -3168,7 +3168,7 @@ environment = SubResource("Environment_pdwew")
 script = ExtResource("25_wus6p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OutOfLevelArea3D"]
-transform = Transform3D(1, 0, 0, 0, 0.990283, -0.139069, 0, 0.139069, 0.990283, 1.49499, 7.78325, -8.3928)
+transform = Transform3D(1, 0, 0, 0, 0.992546, -0.121869, 0, 0.121869, 0.992546, 1.49499, 2.36615, -9.14023)
 shape = SubResource("BoxShape3D_27jqf")
 
 [node name="SceneHandler" type="Node" parent="."]
