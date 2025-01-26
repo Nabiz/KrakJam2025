@@ -1,0 +1,169 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdkaf23iyokdj"]
+
+[ext_resource type="Texture2D" uid="uid://dii31r7yc16mi" path="res://Scenes/Outro/lostpoo.png" id="1_08a6b"]
+[ext_resource type="Script" path="res://Scenes/Outro/outro.gd" id="1_uh5t8"]
+[ext_resource type="Texture2D" uid="uid://ch3wdxnw6g2fe" path="res://Scenes/Outro/game_over.png" id="2_2x4pu"]
+[ext_resource type="Texture2D" uid="uid://tebfs17x60q" path="res://Scenes/Outro/default.png" id="3_c7520"]
+[ext_resource type="Texture2D" uid="uid://ci8t5ca2gmk7t" path="res://Scenes/Outro/down.png" id="4_w2wch"]
+[ext_resource type="Texture2D" uid="uid://dmof0an8n6545" path="res://Scenes/Outro/hover.png" id="5_g20d5"]
+[ext_resource type="AudioStream" uid="uid://dguknxus86wsv" path="res://Assets/Audio/sx_UI_button_play_click_01.wav" id="7_qmdom"]
+[ext_resource type="AudioStream" uid="uid://q7h3iwx4edgs" path="res://Assets/Audio/sx_UI_button_play_hover_01.wav" id="8_mevyi"]
+
+[sub_resource type="Animation" id="Animation_oxwqh"]
+resource_name = "enter"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/mask:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-22, -1920), Vector2(-22, 1920)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TextureButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.36667, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.2, 2.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ak73g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/mask:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-22, -1920)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TextureButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6gmjl"]
+_data = {
+"RESET": SubResource("Animation_ak73g"),
+"enter": SubResource("Animation_oxwqh")
+}
+
+[node name="Outro" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_uh5t8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_2x4pu")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+visible = false
+layout_mode = 2
+offset_left = -370.0
+offset_top = 109.0
+offset_right = 369.0
+offset_bottom = 274.0
+texture_normal = ExtResource("3_c7520")
+texture_pressed = ExtResource("4_w2wch")
+texture_hover = ExtResource("5_g20d5")
+
+[node name="mask" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = -22.0
+offset_top = 1817.6
+offset_right = 18.0
+offset_bottom = 1857.6
+
+[node name="TextureRect" type="TextureRect" parent="Control/mask"]
+layout_mode = 2
+offset_left = -866.156
+offset_top = -186.746
+offset_right = 1053.84
+offset_bottom = 893.254
+pivot_offset = Vector2(968, 507)
+texture = ExtResource("1_08a6b")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/mask"]
+layout_mode = 2
+offset_left = -881.156
+offset_top = -786.746
+offset_right = 1038.84
+offset_bottom = 293.254
+rotation = -3.13396
+pivot_offset = Vector2(968, 507)
+texture = ExtResource("1_08a6b")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6gmjl")
+}
+speed_scale = 4.0
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_qmdom")
+
+[node name="hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_mevyi")
+
+[connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]

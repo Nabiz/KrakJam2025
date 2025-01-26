@@ -1,4 +1,4 @@
-[gd_scene load_steps=211 format=4 uid="uid://lm7q43u0nst0"]
+[gd_scene load_steps=212 format=4 uid="uid://lm7q43u0nst0"]
 
 [ext_resource type="PackedScene" uid="uid://nusimec88pyi" path="res://Scenes/Player/Player.tscn" id="1_fwahb"]
 [ext_resource type="PackedScene" uid="uid://bmy215wwas82f" path="res://Scenes/Paint/PaintEmitter.tscn" id="2_8ccek"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://d12w28pg545n3" path="res://Scenes/UI/Ui.tscn" id="23_iyv7h"]
 [ext_resource type="PackedScene" uid="uid://rxy3bonomwc5" path="res://Scenes/RubbishContainer/RubbishContainer.tscn" id="23_vpo5s"]
 [ext_resource type="Script" path="res://Scripts/OutOfSceneScoreArea.gd" id="25_wus6p"]
+[ext_resource type="Script" path="res://Scenes/Levels/scene_handler.gd" id="28_lprxq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_y7a0q"]
 vertices = PackedVector3Array(-19.75, 9.25, -42, -19, 9.25, -42, -18.75, 9.25, -54.25, -19.75, 9.25, -54.5, -1.5, 9.25, -54.25, -0.5, 9.25, -54.5, -1.25, 9.25, -40.75, -0.5, 9.25, -40.75, -2.25, 5.25, -46.5, -3.75, 5.25, -46.75, -6.5, 5.25, -47, -10.25, 5.25, -36.5, -2.25, 5.25, -40.25, -15, 5.25, -32.5, -9.5, 5.25, -34.25, -10.5, 5.25, -35.5, -15.5, 5.25, -33.25, -6.5, 5.25, -51.75, -6.5, 5.25, -53.25, -18, 5.25, -53.25, -16.75, 5.25, -33.25, -17.75, 5.25, -32.5, -3.25, 5.25, -47, -3.25, 5.25, -51.75, -2.25, 5.25, -53.25, 18.25, 10.5, -18.5, 18.5, 10.25, -8.5, 19.5, 10.25, -8.5, 19.5, 16.5, -39.75, 19.1667, 15.5, -34.0833, 19.5, 10.25, -17.4286, 19.5, 15.75, -35.2857, -3.25, 16.25, -38.5, -5.25, 16.25, -38.5, -5.25, 10.5, -18.5, -3.53572, 16, -35.6429, -5.25, 16, -35.6429, -1.5, 16.25, -39.75, 0.250181, 16.25, -36.7602, 18.2703, 16.25, -36.7283, -19.75, 10.25, -8.5, -18.5, 10.25, -8.5, -18.25, 10.5, -18.5, -19.75, 16, -38.25, -19.75, 15.75, -35.275, -19.75, 10.25, -17.425, -19.4286, 15.5, -34.0179, -17.775, 16.25, -36.775, 2.75, 5.25, -35.75, 2.5, 5.25, -38.25, -1, 5.25, -38.25, -8.5, 5.25, -34.25, -17.5, 5.25, -20.75, -12, 5.25, -20.75, -11.75, 5.25, -22.5, -14.75, 5.25, -31.25, -17.5, 5.25, -29.75, -9, 5.25, -22.5, 0.5, 5.25, -20.75, 4, 5.25, -35.5, 0.75, 5.25, -20.25, -8.75, 5.25, -20.75, 17.25, 5.25, -38.25, 5, 5.25, -38.25, 5, 5.25, -35.75, 0.75, 5.25, -19.5, 15.75, 5.25, -21, 16, 5.25, -22, 17.25, 5.25, -22, 3.5, 6.5, -37.5, 3.75, 6.5, -36.5, 4.25, 6.5, -37, -10.5, 6.75, -20.75, -9.75, 6.75, -21, -9.75, 6.75, -21.5, -11, 6.75, -21.5, 14.5, 5.25, -16.25, 17.5, 5.25, -16, 17.5, 5.25, -19.75, 0.75, 5.25, -17.75, 0.25, 5.25, -17.5, 14.25, 5.25, -15.75, -4.25, 5.25, -18.75, -0.5, 5.25, -18.75, -0.5, 5.25, -19.5, -8.75, 5.25, -19.5, -27.75, 1.25, 12.5, -28, 1.25, 11.25, -28.75, 1.25, 11.25, -28.75, 1.25, 18.5, 11.75, 1.25, 37.25, 12.25, 1.25, 35.75, 11.75, 1.25, 35.5, -17.5, 1.25, 38.5, -26, 1.25, 1.5, -26.25, 1.25, 2.75, -24.5, 1.25, 2.75, -17.5, 1.25, 1.25, 13.25, 1.25, 38.5, 13.5, 1.25, 37.5, -19.75, 1.25, 18.5, -19.5, 1.25, 19.5, -17.5, 1.25, 19.75, 11.75, 1.25, 34.5, 16.75, 1.25, 34.25, 17.5, 1.25, 21.5, -5.75, 5.25, -12.5, -9.25, 5.25, -12.25, -16.5962, 1.25, 0.192307, -10.2692, 5, -7.21154, -12.25, 5, -7.34091, -16.75, 1.25, 0.022728, -24.5, 1.25, 12.25, 14.25, 5.25, -11.25, 15.4318, 1.25, 0.659092, 14.5455, 5.25, -8.27273, -14.8409, 1.25, 21.0909, -10.8523, 0.5, 23.1023, -2.875, 0.5, 27.125, -0.21591, 1.25, 28.4659, 10.7717, 1.25, 0.730232, 0.245266, 5.25, -8.23328, -10.2502, 1.25, 20.2418, 0.260641, 1.25, 26.267, -4.2697, 0.5, 23.2593, -2.72509, 1.25, 20.2467, -1.25844, 1.25, 0.742336, -2.73468, 0.5, 23.2703, -9.5, 5.25, -14.75, -17.5, 5.25, -17.5, -17.5, 5, -7.40385, -17.5, 1.5, -0.192307, -6, 5.25, -15, 17.5, 5.25, -11.25, 17.5, 1.25, 0.659092, 17.5, 5.25, -8.27273, -16.24, 0.5, 23.236, -2.74946, 0.5, 30.7694, 0.225723, 1.25, 32.2342, -2.76912, 0.5, 33.7271, -16.2342, 0.5, 33.7282, 0.250904, 1.25, 33.749, -16.2638, 1.25, 36.7298, -8.5, 6.25, -14, -8.5, 6.25, -13.25, -6.75, 6.25, -13.25, -6.75, 6.25, -14, -19.75, 8.25, -7.5, -19.75, 8.25, -0.5, -18.5, 8.25, -0.5, -18.5, 8.25, -7.5, -19.5, 5.25, -7.5, -19.5, 1.75, -0.5, -18.75, 1.75, -0.5, -18.75, 5.25, -7.5, 18.5, 8.25, -7.5, 18.5, 8.25, -0.5, 19.5, 8.25, -0.5, 19.5, 8.25, -7.5, 18.75, 5.25, -7.5, 18.75, 1.75, -0.5, 19.25, 1.75, -0.5, 19.25, 5.25, -7.5, 19.5, 5.5, 0.5, 18.5, 5.5, 0.5, 18.25, 5.25, 1.25, 18.25, 5.25, 20.75, 19.5, 5.25, 20.25, 39, 7.25, 20.75, 39.5, 7.25, 20.5, 29.5, 7.25, 20.375, 19.7321, 5.25, 20.75, 28.625, 7.25, 20.75, 39.5, 7.25, 39.75, 39, 7.25, 39.5, -18.25, 5.25, 39.5, -18.5, 5.25, 20.5, -19.75, 5.25, 20.5, -19.75, 5.25, 39.75, 18.4758, 5.25, 39.75, 29.9435, 7.25, 39.75, 29.7661, 7.25, 39.5, 18.6855, 5.25, 39.5, -28, 1.25, 2.75, -28.75, 1.25, 1.5, 17.25, 1.25, 35.5, 16.75, 1.25, 35.75, 17.25, 1.25, 36.25, 17, 1.25, 37.5, 38.25, 3.25, 38.5, 29.75, 3.25, 38.1, 19.1324, 1.25, 38.5, 29.4265, 3.25, 38.5, 38.25, 3.25, 30.5, 33.75, 3.25, 30.25, 29.625, 3.25, 31.75, 17.25, 1.25, 34.5, 33.75, 3.25, 21.75, 29.3182, 3.25, 21.6818, 35.5, 3.25, 21.75, 35.5, 3.25, 28.75, 38.25, 3.25, 28.75, 38.25, 3.25, 21.75)
@@ -677,7 +678,6 @@ shadow_mesh = SubResource("ArrayMesh_yqjg0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lh4da"]
 resource_name = "_defaultMat"
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_44004"]
@@ -724,7 +724,6 @@ emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l86gu"]
 resource_name = "_defaultMat"
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2ml8"]
@@ -827,7 +826,6 @@ emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oegjb"]
 resource_name = "_defaultMat"
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0tu5"]
@@ -1018,7 +1016,6 @@ emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4o12"]
 resource_name = "_defaultMat"
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_47js0"]
@@ -1238,7 +1235,6 @@ emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56wet"]
 resource_name = "_defaultMat"
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_oufwn"]
@@ -1324,7 +1320,6 @@ points = PackedVector3Array(0.382839, 0.90358, -0.0105625, 0.000967665, 0.012435
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kax2"]
 resource_name = "_defaultMat"
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cst4e"]
@@ -3172,6 +3167,9 @@ script = ExtResource("25_wus6p")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OutOfLevelArea3D"]
 transform = Transform3D(1, 0, 0, 0, 0.990283, -0.139069, 0, 0.139069, 0.990283, 1.49499, 7.78325, -8.3928)
 shape = SubResource("BoxShape3D_27jqf")
+
+[node name="SceneHandler" type="Node" parent="."]
+script = ExtResource("28_lprxq")
 
 [editable path="Player"]
 [editable path="NavigationRegion3D/FinalMap"]

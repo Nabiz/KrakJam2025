@@ -302,9 +302,9 @@ tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0, 2.4, 2.76667),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(1, 1, 8.57417),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.8, 0.8, 0.8, 1)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -423,10 +423,10 @@ texture = ExtResource("1_cjn3h")
 [node name="Clean" type="TextureRect" parent="Control/Control"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 257.303
-offset_top = -385.466
-offset_right = 750.303
-offset_bottom = -183.466
+offset_left = 209.434
+offset_top = -313.379
+offset_right = 702.434
+offset_bottom = -111.379
 rotation = 0.179629
 pivot_offset = Vector2(259.72, 87.2038)
 texture = ExtResource("2_smqiq")
@@ -434,10 +434,10 @@ texture = ExtResource("2_smqiq")
 [node name="Em" type="TextureRect" parent="Control/Control"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -676.856
-offset_top = 80.2242
-offset_right = -276.856
-offset_bottom = 278.224
+offset_left = -571.489
+offset_top = 283.034
+offset_right = -171.489
+offset_bottom = 481.034
 rotation = -0.00165646
 pivot_offset = Vector2(229.267, 96.5621)
 texture = ExtResource("3_ieljg")
@@ -445,10 +445,10 @@ texture = ExtResource("3_ieljg")
 [node name="All" type="TextureRect" parent="Control/Control"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 120.541
-offset_top = 851.783
-offset_right = 393.541
-offset_bottom = 1020.78
+offset_left = 246.6
+offset_top = 884.555
+offset_right = 519.6
+offset_bottom = 1053.55
 texture = ExtResource("4_pmdp2")
 
 [node name="Excl" type="TextureRect" parent="Control/Control"]
@@ -470,10 +470,10 @@ libraries = {
 
 [node name="TextureButton" type="TextureButton" parent="Control/Control"]
 layout_mode = 0
-offset_left = 803.646
-offset_top = 356.547
-offset_right = 1171.65
-offset_bottom = 521.547
+offset_left = 776.646
+offset_top = 356.596
+offset_right = 1144.65
+offset_bottom = 521.596
 texture_normal = ExtResource("8_fcuj0")
 texture_pressed = ExtResource("9_l1ko6")
 texture_hover = ExtResource("10_ipotp")

@@ -1,0 +1,199 @@
+[gd_scene load_steps=13 format=3 uid="uid://duujfndmryhaw"]
+
+[ext_resource type="Script" path="res://Scenes/Outro/outro.gd" id="1_lpevw"]
+[ext_resource type="Texture2D" uid="uid://6bnqm1eakw3c" path="res://Scenes/Outro/won.png" id="2_o3ghr"]
+[ext_resource type="Texture2D" uid="uid://tebfs17x60q" path="res://Scenes/Outro/default.png" id="3_rk6ic"]
+[ext_resource type="Texture2D" uid="uid://ci8t5ca2gmk7t" path="res://Scenes/Outro/down.png" id="4_n58bx"]
+[ext_resource type="Texture2D" uid="uid://dmof0an8n6545" path="res://Scenes/Outro/hover.png" id="5_lovhi"]
+[ext_resource type="Texture2D" uid="uid://dfl716rntky28" path="res://Scenes/Outro/bubbled_poo.png" id="6_0d17o"]
+[ext_resource type="AudioStream" uid="uid://dguknxus86wsv" path="res://Assets/Audio/sx_UI_button_play_click_01.wav" id="7_bqtjn"]
+[ext_resource type="AudioStream" uid="uid://q7h3iwx4edgs" path="res://Assets/Audio/sx_UI_button_play_hover_01.wav" id="8_hoxfo"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ty53k"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 600, 0)
+emission_shape_scale = Vector3(1200, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 50.0
+angular_velocity_min = -3.00002
+angular_velocity_max = 2.99998
+orbit_velocity_min = -0.00999991
+orbit_velocity_max = 0.0100001
+radial_velocity_min = -0.300022
+radial_velocity_max = 0.299978
+gravity = Vector3(0, -100, 0)
+radial_accel_min = -47.72
+radial_accel_max = 27.62
+scale_min = 0.0
+
+[sub_resource type="Animation" id="Animation_ak73g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-444, 343)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TextureButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/TextureRect:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_oxwqh"]
+resource_name = "enter"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-439, 1800), Vector2(-416, -1800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TextureButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.56667, 2.66667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 3.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/TextureRect:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-3.26377, 1.59349]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6gmjl"]
+_data = {
+"RESET": SubResource("Animation_ak73g"),
+"enter": SubResource("Animation_oxwqh")
+}
+
+[node name="Outro" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_lpevw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_o3ghr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Control"]
+position = Vector2(-27, 320)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_ty53k")
+texture = ExtResource("6_0d17o")
+lifetime = 10.0
+speed_scale = 3.39
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+visible = false
+layout_mode = 2
+offset_left = -370.0
+offset_top = 109.0
+offset_right = 369.0
+offset_bottom = 274.0
+texture_normal = ExtResource("3_rk6ic")
+texture_pressed = ExtResource("4_n58bx")
+texture_hover = ExtResource("5_lovhi")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -444.0
+offset_top = 343.0
+offset_right = 398.0
+offset_bottom = 1173.0
+pivot_offset = Vector2(429, 449)
+texture = ExtResource("6_0d17o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6gmjl")
+}
+speed_scale = 2.0
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_bqtjn")
+
+[node name="hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_hoxfo")
+
+[connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]

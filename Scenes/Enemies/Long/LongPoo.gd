@@ -48,8 +48,7 @@ func emit_paint():
 #
 func getVisual():
 	return gfx;
-	
-	
+
 func get_random_reachable_target() -> Vector3:
 	var nav_map = agent.get_navigation_map()
 	var start_pos = global_position

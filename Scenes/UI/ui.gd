@@ -10,6 +10,7 @@ var pos = Vector2.ZERO;
 func _ready():
 	pos = bubbleMeter.position;
 	bubbleMeter.value = GameState.bubbles;
+	enemiesCounter.numberOfEnemies = GameState.numberOfEnemies;
 	onTimeChange(GameState.time);
 	GameState.bubble_change.connect(onBubbleChange)
 	GameState.time_change.connect(onTimeChange)
