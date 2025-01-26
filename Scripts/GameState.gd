@@ -117,4 +117,4 @@ func win():
 
 	
 func lost():
-	game_won.emit();
+	game_lost.emit();
