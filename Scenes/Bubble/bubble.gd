@@ -58,7 +58,7 @@ func _on_body_entered(body: Node):
 		destroy();
 		return;
 	
-	if body.is_in_group("ScoringArea") and grabbedVisual != null:
+	if body.is_in_group("ScoringArea") and grabbedVisual != null and body.is_in_group("Enemy"):
 			score();
 			return;
 			
@@ -70,7 +70,8 @@ func _on_body_entered(body: Node):
 		body.queue_free();
 		catchAudio.play();
 		GameState.enemy_grabbed.emit()
-		self.add_to_group("Enemy");
+		if body.is_in_group("Enemy"):
+			self.add_to_group("Enemy");
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(grabbedVisual, "position", Vector3.DOWN * 0.3, 0.8).set_trans(Tween.TRANS_SPRING)
