@@ -7,6 +7,15 @@ signal time_change;
 signal time_end;
 signal time_low;
 
+signal enemy_grabbed;
+signal enemy_wiped;
+signal bubble_destroyed;
+
+signal enemy_number_changed(numberOfEnemies);
+
+signal start_loading;
+signal stop_loading;
+
 const ROUND_TIME = 180;
 const LOW_TIME = 30;
 
@@ -15,8 +24,8 @@ var bubbles: float = 100;
 var time: int = ROUND_TIME;
 
 var ticker = Timer.new();
-
 var bubblesTicker = Timer.new();
+var loadingTicker = Timer.new();
 
 var haveBubbles:
 	get():
@@ -25,8 +34,13 @@ var haveBubbles:
 func _ready():
 	add_child(ticker);
 	add_child(bubblesTicker);
+	add_child(loadingTicker);
 	ticker.timeout.connect(_on_timer_timeout);
 	bubblesTicker.timeout.connect(_on_bubbleTicker_timeout);
+	loadingTicker.timeout.connect(_on_loadingTicker_timeout);
+	
+	self.enemy_wiped.connect(emitNumberOfEnemies);
+	emitNumberOfEnemies();
 
 	ticker.start(1);
 	
@@ -36,6 +50,15 @@ func startSpending():
 
 func stopSpending():
 	bubblesTicker.stop();
+	
+func startLoading():
+	start_loading.emit()
+	loadingTicker.start(0.1);
+	
+func stopLoading():
+	stop_loading.emit()
+	loadingTicker.stop();
+	
 
 func _on_timer_timeout():
 	time -= 1;
@@ -55,4 +78,17 @@ func _on_bubbleTicker_timeout():
 		end_of_bubble.emit();
 		want_bubble_but_empty.emit();
 		stopSpending()
-	bubbles -= 1;
+	bubbles -= 0.5;
+	
+
+func _on_loadingTicker_timeout():
+	bubble_change.emit(bubbles);
+	if bubbles >= 100:
+		bubbles = 100;
+		stopLoading();
+	bubbles += 5;
+	
+func emitNumberOfEnemies():
+	self.enemy_number_changed.emit(get_tree().get_node_count_in_group("Enemy"));
+	print(get_tree().get_node_count_in_group("Enemy"));
+	pass;

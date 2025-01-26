@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://d12w28pg545n3"]
+[gd_scene load_steps=12 format=3 uid="uid://d12w28pg545n3"]
 
 [ext_resource type="Script" path="res://Scenes/UI/ui.gd" id="1_kybuf"]
 [ext_resource type="Texture2D" uid="uid://d1rg1hybkyyvt" path="res://Scenes/UI/emptyMeter.png" id="1_vijxo"]
 [ext_resource type="Texture2D" uid="uid://bq8022y25n7iq" path="res://Scenes/UI/bubbleMeterFull.png" id="2_aooul"]
 [ext_resource type="Texture2D" uid="uid://v86l8grofa7s" path="res://Scenes/UI/bubbleOnMeter.png" id="3_nxj6o"]
 [ext_resource type="FontFile" uid="uid://c4rsayht6h8ao" path="res://Assets/Fonts/BalooBhaijaan2-VariableFont_wght.ttf" id="5_gkiba"]
+[ext_resource type="Script" path="res://Scenes/UI/item_list.gd" id="6_pxn63"]
+[ext_resource type="Texture2D" uid="uid://du3fdcssndham" path="res://Scenes/UI/pooMeter.png" id="6_ruy3g"]
+[ext_resource type="Texture2D" uid="uid://exf8r0rtfwvl" path="res://Scenes/UI/poo.png" id="7_512jm"]
+[ext_resource type="PackedScene" uid="uid://c34k0gmermwbk" path="res://Scenes/UI/Icon.tscn" id="7_sjatm"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_spr1a"]
 lifetime_randomness = 1.0
@@ -37,11 +41,15 @@ grow_vertical = 2
 script = ExtResource("1_kybuf")
 
 [node name="BubbleMeter" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 358.0
-offset_right = 105.0
-offset_bottom = 614.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -301.0
+offset_right = 107.0
+offset_bottom = -45.0
+grow_vertical = 0
 value = 50.0
 fill_mode = 3
 texture_under = ExtResource("1_vijxo")
@@ -57,12 +65,47 @@ trail_enabled = true
 trail_lifetime = 0.1
 
 [node name="TimeLeft" type="Label" parent="."]
-layout_mode = 0
-offset_left = 978.0
-offset_top = 22.0
-offset_right = 1123.0
-offset_bottom = 133.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 8.0
+offset_right = -39.0
+offset_bottom = 119.0
+grow_horizontal = 0
 text = "01:60
 "
 label_settings = SubResource("LabelSettings_h3svh")
 horizontal_alignment = 3
+
+[node name="PooMeter" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 558.0
+offset_bottom = 192.0
+texture = ExtResource("6_ruy3g")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PooMeter"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 112.0
+offset_bottom = 115.0
+texture = ExtResource("7_512jm")
+
+[node name="ItemList" type="HFlowContainer" parent="PooMeter"]
+layout_mode = 2
+offset_left = 117.0
+offset_top = 37.0
+offset_right = 374.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+last_wrap_alignment = 1
+script = ExtResource("6_pxn63")
+Icon = ExtResource("7_sjatm")
+numberOfEnemies = 17

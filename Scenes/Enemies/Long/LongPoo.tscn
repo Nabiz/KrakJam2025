@@ -327,7 +327,7 @@ stream_10/stream = ExtResource("10_ahdog")
 stream_11/stream = ExtResource("11_5srnw")
 stream_12/stream = ExtResource("12_p6y0e")
 
-[node name="LongPoo" type="CharacterBody3D" groups=["Catchable"]]
+[node name="LongPoo" type="CharacterBody3D" groups=["Catchable", "Enemy"]]
 collision_layer = 4
 wall_min_slide_angle = 0.785398
 script = ExtResource("1_35ung")

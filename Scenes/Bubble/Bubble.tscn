@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dajuca1wpgag1"]
+[gd_scene load_steps=33 format=3 uid="uid://dajuca1wpgag1"]
 
 [ext_resource type="Script" path="res://Scenes/Bubble/bubble.gd" id="1_u24qe"]
 [ext_resource type="PackedScene" uid="uid://bckenc12isu54" path="res://Scenes/Bubble/BubbleGFX.tscn" id="2_8st3x"]
@@ -16,11 +16,13 @@
 [ext_resource type="AudioStream" uid="uid://d04h172xpysq7" path="res://Assets/Audio/vx_mob_bounce_05.wav" id="14_a4cle"]
 [ext_resource type="AudioStream" uid="uid://dvqkwolwvl7yc" path="res://Assets/Audio/vx_mob_bounce_06.wav" id="15_ijghe"]
 [ext_resource type="AudioStream" uid="uid://bg6ytbkrhfc8p" path="res://Assets/Audio/vx_mob_bounce_07.wav" id="16_43tie"]
-[ext_resource type="AudioStream" uid="uid://3ho6gcjg8jwn" path="res://Assets/Audio/sx_bubble_explosion_01.wav" id="17_hypu0"]
-[ext_resource type="AudioStream" uid="uid://bbsule41ww1y5" path="res://Assets/Audio/sx_bubble_explosion_02.wav" id="18_rx2jm"]
-[ext_resource type="AudioStream" uid="uid://cj7yej6wc4t07" path="res://Assets/Audio/sx_bubble_explosion_03.wav" id="19_7wkkw"]
+[ext_resource type="AudioStream" uid="uid://dckik4ovn26c2" path="res://Assets/Audio/sx_bubble_explosion_small_01.wav" id="17_6j08i"]
+[ext_resource type="AudioStream" uid="uid://cshv63hhi4gpo" path="res://Assets/Audio/sx_bubble_explosion_small_02.wav" id="18_q4nol"]
+[ext_resource type="AudioStream" uid="uid://ci2mx52borupx" path="res://Assets/Audio/sx_bubble_explosion_small_03.wav" id="19_qlnlv"]
 [ext_resource type="AudioStream" uid="uid://dfchog5v4ndm8" path="res://Assets/Audio/sx_UX_mob_kill_01.wav" id="20_3tw6w"]
+[ext_resource type="AudioStream" uid="uid://crgaa3s10e8nw" path="res://Assets/Audio/sx_bubble_explosion_small_04.wav" id="20_vnxpt"]
 [ext_resource type="AudioStream" uid="uid://15yhqa0m8ofq" path="res://Assets/Audio/sx_bubble_mob_catch_01.wav" id="21_jv3y7"]
+[ext_resource type="AudioStream" uid="uid://dkvh4i00b2nto" path="res://Assets/Audio/sx_bubble_explosion_small_05.wav" id="21_w8fbw"]
 [ext_resource type="AudioStream" uid="uid://f17wy11jvl0q" path="res://Assets/Audio/sx_bubble_mob_catch_02.wav" id="22_560ck"]
 [ext_resource type="AudioStream" uid="uid://cveq71fm0jvg2" path="res://Assets/Audio/sx_bubble_mob_catch_03.wav" id="23_b77lx"]
 [ext_resource type="AudioStream" uid="uid://bd156iwxgkswx" path="res://Assets/Audio/sx_bubble_mob_catch_04.wav" id="24_asflb"]
@@ -50,10 +52,12 @@ stream_5/stream = ExtResource("15_ijghe")
 stream_6/stream = ExtResource("16_43tie")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qrgyp"]
-streams_count = 3
-stream_0/stream = ExtResource("17_hypu0")
-stream_1/stream = ExtResource("18_rx2jm")
-stream_2/stream = ExtResource("19_7wkkw")
+streams_count = 5
+stream_0/stream = ExtResource("17_6j08i")
+stream_1/stream = ExtResource("18_q4nol")
+stream_2/stream = ExtResource("19_qlnlv")
+stream_3/stream = ExtResource("20_vnxpt")
+stream_4/stream = ExtResource("21_w8fbw")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jwkk7"]
 streams_count = 5
@@ -66,9 +70,9 @@ stream_4/stream = ExtResource("25_mxvph")
 [node name="Bubble" type="RigidBody3D" groups=["EnemiesCatcher"]]
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_ru74g")
-gravity_scale = 0.1
 contact_monitor = true
 max_contacts_reported = 1
+constant_force = Vector3(0, 0.009, 0)
 script = ExtResource("1_u24qe")
 
 [node name="BubbleGFX" parent="." instance=ExtResource("2_8st3x")]
@@ -83,6 +87,9 @@ volume_db = -10.0
 stream = SubResource("AudioStreamRandomizer_67rjt")
 
 [node name="ExplosionAudio" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_qrgyp")
+
+[node name="SmallExplosionAudio" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_qrgyp")
 
 [node name="ScoreAudio" type="AudioStreamPlayer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://lm7q43u0nst0"]
+[gd_scene load_steps=51 format=4 uid="uid://lm7q43u0nst0"]
 
 [ext_resource type="PackedScene" uid="uid://nusimec88pyi" path="res://Scenes/Player/Player.tscn" id="1_fwahb"]
 [ext_resource type="PackedScene" uid="uid://bmy215wwas82f" path="res://Scenes/Paint/PaintEmitter.tscn" id="2_8ccek"]
@@ -21,8 +21,10 @@
 [ext_resource type="Texture2D" uid="uid://bj1wsrge53y7h" path="res://Assets/Level/FInalMap/FinalMap.png" id="18_vsv4j"]
 [ext_resource type="PackedScene" uid="uid://4n1q8mwdw64o" path="res://Scenes/Enemies/Long/LongPoo.tscn" id="19_8gird"]
 [ext_resource type="PackedScene" uid="uid://itj8nh6rnf3v" path="res://Scenes/Enemies/Long/LongPooDance.tscn" id="20_gsrd7"]
+[ext_resource type="Script" path="res://Scripts/LoadingBubblesArea.gd" id="21_pfego"]
 [ext_resource type="PackedScene" uid="uid://cflqbpdmofivk" path="res://Scenes/Audio/audio.tscn" id="22_oygjb"]
 [ext_resource type="PackedScene" uid="uid://d12w28pg545n3" path="res://Scenes/UI/Ui.tscn" id="23_iyv7h"]
+[ext_resource type="Script" path="res://Scripts/OutOfSceneScoreArea.gd" id="25_wus6p"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_y7a0q"]
 vertices = PackedVector3Array(-19.75, 9.25, -42, -19, 9.25, -42, -18.75, 9.25, -54.25, -19.75, 9.25, -54.5, -1.5, 9.25, -54.25, -0.5, 9.25, -54.5, -1.25, 9.25, -40.75, -0.5, 9.25, -40.75, -15.75, 5.25, -33.25, -10, 5.25, -34.75, -10.5, 5.25, -35.5, -10.25, 5.25, -36.5, -18, 5.25, -53.25, -16.75, 5.25, -33.25, -17.75, 5.25, -32.5, -2.25, 5.25, -40.25, -2.25, 5.25, -53.25, 18.25, 10.5, -18.5, 18.5, 10.25, -8.5, 19.5, 10.25, -8.5, 19.5, 16.5, -39.75, 19.1667, 15.5, -34.0833, 19.5, 10.25, -17.4286, 19.5, 15.75, -35.2857, -3.25, 16.25, -38.5, -5.25, 16.25, -38.5, -5.25, 10.5, -18.5, -3.53572, 16, -35.6429, -5.25, 16, -35.6429, -1.5, 16.25, -39.75, 0.250181, 16.25, -36.7602, 18.2703, 16.25, -36.7283, -19.75, 10.25, -8.5, -18.5, 10.25, -8.5, -18.25, 10.5, -18.5, -19.75, 16, -38.25, -19.75, 15.75, -35.275, -19.75, 10.25, -17.425, -19.4286, 15.5, -34.0179, -17.775, 16.25, -36.775, 0.5, 5.25, -20.75, 0.75, 5.25, -20.25, 15.75, 5.25, -20.75, 16, 5.25, -22, -8.75, 5.25, -34.25, -8.75, 5.25, -20.75, 17.25, 5.25, -38.25, -1, 5.25, -38.25, 17.25, 5.25, -22, -15, 5.25, -32.75, -9.75, 5.25, -34.25, -14.75, 5.25, -31.25, -17.5, 5.25, -29.75, -17.5, 5.25, -20.75, -19.75, 1.25, 18.5, -19.5, 1.25, 19.5, -17.5, 1.25, 19.75, 0.5, 5.25, -17.5, 17.5, 5.25, -19.75, 19, 1.25, 38.5, 19.25, 1.25, 21.75, 17.5, 1.25, 21.5, -17.5, 1.25, 38.5, -16.2498, 0.5, 23.2398, -14.7528, 0.5, 33.7747, 0.252592, 1.25, 35.2372, -2.77271, 0.5, 33.7626, 0.236759, 1.25, 30.7291, -11.7448, 0.5, 23.2728, -2.77355, 0.5, 29.2435, 0.256182, 1.25, 27.7517, -2.75413, 0.5, 26.2661, 0.225603, 1.25, 24.7744, -4.26972, 0.5, 23.2277, 0.235313, 1.25, 23.2607, -16.2378, 0.5, 33.7637, -14.7423, 1.25, 36.7301, -2.73471, 0.5, 23.2387, -17.5, 5.25, -17.5, -17.5, 1.25, 1.25, -16.5, 1.25, 0.208332, -8.5, 5.25, -8.125, -17.5, 5, -7.40385, -17.5, 1.5, -0.192307, -28.75, 1.25, 1.5, -28.75, 1.25, 18.5, 17.5, 1.25, 0.875, 17.5, 5.25, -7.96429, 6.22729, 1.25, 0.762547, 3.27093, 5.25, -8.22899, -4.25, 5.25, -18.75, -0.5, 5.25, -18.75, -0.5, 5.25, -19.5, -8.75, 5.25, -19.5, -19.75, 8.25, -7.5, -19.75, 8.25, -0.5, -18.5, 8.25, -0.5, -18.5, 8.25, -7.5, -19.5, 5.25, -7.5, -19.5, 1.75, -0.5, -18.75, 1.75, -0.5, -18.75, 5.25, -7.5, 18.5, 8.25, -7.5, 18.5, 8.25, -0.5, 19.5, 8.25, -0.5, 19.5, 8.25, -7.5, 18.75, 5.25, -7.5, 18.75, 1.75, -0.5, 19.25, 1.75, -0.5, 19.25, 5.25, -7.5, 19.5, 5.5, 0.5, 18.5, 5.5, 0.5, 18.25, 5.25, 1.25, 18.25, 5.25, 20.75, 19.5, 5.25, 20.25, 39, 7.25, 20.75, 39.5, 7.25, 20.5, 29.5, 7.25, 20.375, 19.7321, 5.25, 20.75, 28.625, 7.25, 20.75, 39.5, 7.25, 39.75, 39, 7.25, 39.5, -18.25, 5.25, 39.5, -18.5, 5.25, 20.5, -19.75, 5.25, 20.5, -19.75, 5.25, 39.75, 18.4758, 5.25, 39.75, 29.9435, 7.25, 39.75, 29.7661, 7.25, 39.5, 18.6855, 5.25, 39.5, 38.25, 3.25, 38.5, 38.25, 3.25, 30.5, 33.75, 3.25, 30.25, 33.75, 3.25, 21.75, 28.9167, 3.25, 27.4167, 29.4, 3.25, 21.75, 29.3654, 3.25, 38.5, 35.5, 3.25, 21.75, 35.5, 3.25, 28.75, 38.25, 3.25, 28.75, 38.25, 3.25, 21.75)
@@ -108,11 +110,17 @@ size = Vector2(18, 15)
 subdivide_width = 20
 subdivide_depth = 20
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6afll"]
+size = Vector3(17, 4, 14)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_ve1ll"]
 material = SubResource("ShaderMaterial_85lqt")
 size = Vector2(5, 10)
 subdivide_width = 20
 subdivide_depth = 20
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ow1hc"]
+size = Vector3(4.68611, 3.384, 9.26469)
 
 [sub_resource type="Curve" id="Curve_gdgxe"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.14433, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.71975), 0.0, 0.0, 0, 0]
@@ -171,6 +179,9 @@ ambient_light_energy = 0.3
 reflected_light_source = 1
 sdfgi_use_occlusion = true
 glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_27jqf"]
+size = Vector3(78.9012, 14, 103.05)
 
 [node name="MainTestScene" type="Node3D"]
 
@@ -365,10 +376,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.19612, 0.754472, 28.7173)
 mesh = SubResource("PlaneMesh_1046q")
 skeleton = NodePath("../..")
 
+[node name="Area3D" type="Area3D" parent="Water/WeterMeshInstance3D"]
+script = ExtResource("21_pfego")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/WeterMeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_6afll")
+
 [node name="WeterMeshInstance3D2" type="MeshInstance3D" parent="Water"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.0766, 3.76219, 24.9726)
 mesh = SubResource("PlaneMesh_ve1ll")
 skeleton = NodePath("../..")
+
+[node name="Area3D2" type="Area3D" parent="Water/WeterMeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.709127, 0.0536232)
+script = ExtResource("21_pfego")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/WeterMeshInstance3D2/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.250404, 0, 0.329567)
+shape = SubResource("BoxShape3D_ow1hc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pdwew")
@@ -376,6 +401,13 @@ environment = SubResource("Environment_pdwew")
 [node name="Audio" parent="." instance=ExtResource("22_oygjb")]
 
 [node name="Ui" parent="." instance=ExtResource("23_iyv7h")]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("25_wus6p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.990283, -0.139069, 0, 0.139069, 0.990283, 1.49499, 7.78325, -8.3928)
+shape = SubResource("BoxShape3D_27jqf")
 
 [editable path="Player"]
 [editable path="NavigationRegion3D/FinalMap"]

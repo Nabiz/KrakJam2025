@@ -1,8 +1,8 @@
 extends Control
 
-
 @onready var bubbleMeter: TextureProgressBar = $BubbleMeter
 @onready var timeLeft: Label = $TimeLeft
+@onready var enemiesCounter = $PooMeter/ItemList
 
 
 var pos = Vector2.ZERO;
@@ -14,6 +14,7 @@ func _ready():
 	GameState.bubble_change.connect(onBubbleChange)
 	GameState.time_change.connect(onTimeChange)
 	GameState.want_bubble_but_empty.connect(bump);
+	GameState.enemy_number_changed.connect(onEnemiesChange)
 
 func onBubbleChange(value: float):
 	bubbleMeter.value = value;
@@ -24,6 +25,9 @@ func onTimeChange(value: int):
 	
 	timeLeft.text = "%2d:%02d" % [minutes, seconds]
 	pass;
+	
+func onEnemiesChange(number: int):
+	enemiesCounter.numberOfEnemies = number;
 
 func bump():
 	var tween = get_tree().create_tween();

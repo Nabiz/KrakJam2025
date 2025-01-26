@@ -11,7 +11,8 @@ var distortion: float = 1.0;
 @onready var collisionShape: CollisionShape3D = $CollisionShape3D;
 @onready var bounceAudio: AudioStreamPlayer3D = $BounceAudio;
 @onready var bounceAudioMob: AudioStreamPlayer3D = $MobBounceAudio;
-@onready var explosionAudio: AudioStreamPlayer3D = $ExplosionAudio
+@onready var explosionAudio: AudioStreamPlayer3D = $ExplosionAudio;
+@onready var smallExplosionAudio: AudioStreamPlayer3D = $SmallExplosionAudio;
 @onready var catchAudio: AudioStreamPlayer3D = $CatchAudio
 @onready var scoreAudio: AudioStreamPlayer = $ScoreAudio
 
@@ -33,17 +34,20 @@ func _ready():
 		return gfx.scale.x;
 
 func destroy():
+	self.remove_from_group("Enemy");
 	destroyed.emit();
 	self.collision_layer = 0;
-	explosionAudio.play();
-	EventBus.emit_signal("bubble_destroyed");
+	var audio = smallExplosionAudio if self.targetScale < 1.5 else explosionAudio ;
+	audio.play();
+	GameState.bubble_destroyed.emit()
 	#workaround to make audio play before being destroyed
 	self.visible = false;
-	explosionAudio.connect("finished", Callable(self, "queue_free"))
+	audio.connect("finished", Callable(self, "queue_free"))
 
 
 func score():
-	EventBus.emit_signal("enemy_wiped");
+	self.remove_from_group("Enemy");
+	GameState.enemy_wiped.emit()
 	scoreAudio.play();
 	#workaround to make audio play before being destroyed
 	self.visible = false;
@@ -65,11 +69,13 @@ func _on_body_entered(body: Node):
 		grabbedVisual.reparent(self);
 		body.queue_free();
 		catchAudio.play();
-		EventBus.emit_signal("enemy_grabbed");
-		self.add_to_group("FullBubble");
+		GameState.enemy_grabbed.emit()
+		self.add_to_group("Enemy");
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(grabbedVisual, "position", Vector3.DOWN * 0.3, 0.8).set_trans(Tween.TRANS_SPRING)
+		#if (targetScale < 2):
+			#tween.tween_property(self, "targetScale", 1.3, 0.8).set_trans(Tween.TRANS_SPRING)
 		return;
 	
 	if (!body.is_in_group("Catchable") and grabbedVisual == null):

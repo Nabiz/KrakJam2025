@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c34k0gmermwbk"]
+
+[ext_resource type="Texture2D" uid="uid://c34l5in3j6qar" path="res://Scenes/UI/pooDot.png" id="1_c2l1d"]
+
+[node name="Icon" type="TextureRect"]
+offset_right = 42.0
+offset_bottom = 42.0
+texture = ExtResource("1_c2l1d")

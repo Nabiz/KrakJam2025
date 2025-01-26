@@ -327,7 +327,7 @@ stream_10/stream = ExtResource("10_6k4f1")
 stream_11/stream = ExtResource("11_df7ig")
 stream_12/stream = ExtResource("12_kqooc")
 
-[node name="LongPooThrow" type="CharacterBody3D" groups=["Catchable"]]
+[node name="LongPooThrow" type="CharacterBody3D" groups=["Catchable", "Enemy"]]
 collision_layer = 4
 script = ExtResource("1_qabep")
 
