@@ -5,10 +5,10 @@ extends SubViewport
 @onready var clean_brush: Node2D = $CleanBrush
  
 func paint_splash(position : Vector2, colour: Color = Color(1, 1, 1)):
-	brush.queue_brush(position * 2048, colour)
+	brush.queue_brush(position * 4096, colour)
 
 func paint_soft(position : Vector2, colour: Color = Color(1, 1, 1)):
-	soft_brush.queue_brush(position * 2048, colour)
+	soft_brush.queue_brush(position * 4096, colour)
 
 func clean(position : Vector2, colour: Color = Color(1, 1, 1)):
-	clean_brush.queue_brush(position * 2048, colour)
+	clean_brush.queue_brush(position * 4096, colour)

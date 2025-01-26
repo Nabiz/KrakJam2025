@@ -17,7 +17,7 @@ const JUMP_VELOCITY = 4.5
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 
 func _ready() -> void:
-	set_new_target()
+	#set_new_target()
 	animation.play("crawl_in_place");
 	animation.seek(randf());
 	poo_emiter.LevelUVPosition = self.LevelUVPosition

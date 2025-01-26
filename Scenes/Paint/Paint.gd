@@ -41,8 +41,8 @@ func _physics_process(delta):
 			if uv:
 				if is_splash:
 					draw_viewport.paint_splash(uv, color)
-					mask_viewport.paint_splash(uv, Color(0.9,0.9,0.9))
+					mask_viewport.paint_splash(uv, Color(0.98,0.98,0.98))
 				else:
 					draw_viewport.paint_soft(uv, color)
-					mask_viewport.paint_soft(uv, Color(0.9,0.9,0.9))
+					mask_viewport.paint_soft(uv, Color(0.98,0.98,0.98))
 		queue_free()

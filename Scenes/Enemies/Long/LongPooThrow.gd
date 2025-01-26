@@ -14,7 +14,7 @@ const JUMP_VELOCITY = 4.5
 
 @onready var audioFart: AudioStreamPlayer3D = $AudioFart
 
-@onready var agent: NavigationAgent3D = $NavigationAgent3D
+#@onready var agent: NavigationAgent3D = $NavigationAgent3D
 
 func _ready() -> void:
 	#set_new_target()
