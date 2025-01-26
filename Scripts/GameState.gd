@@ -22,7 +22,7 @@ signal game_lost;
 
 signal start_game;
 
-const ROUND_TIME = 1 * 5;
+const ROUND_TIME = 60 * 5;
 const LOW_TIME = 30;
 
 # state
