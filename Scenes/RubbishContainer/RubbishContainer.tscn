@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://rxy3bonomwc5"]
+[gd_scene load_steps=8 format=4 uid="uid://rxy3bonomwc5"]
 
 [ext_resource type="Script" path="res://Scenes/RubbishContainer/InRubbishScoreArea.gd" id="2_3b6ta"]
 
@@ -57,9 +57,6 @@ _surfaces = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_fqsa6"]
 size = Vector3(0.502437, 0.157891, 0.261602)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_bc1jg"]
-size = Vector3(5.196, 3.037, 2.85)
-
 [node name="RubbishContainer" type="Node3D"]
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -86,13 +83,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.132804, -0.124388)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rubbishContainer/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00334351, 0.0634122, -0.00445529)
 shape = SubResource("BoxShape3D_fqsa6")
-
-[node name="Gravity" type="Area3D" parent="."]
-gravity_space_override = 1
-gravity_point = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Gravity"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0863426, 1.2043, 0)
-shape = SubResource("BoxShape3D_bc1jg")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
