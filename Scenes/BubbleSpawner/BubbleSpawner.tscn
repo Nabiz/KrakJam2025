@@ -1,14 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl2emb0alybbs"]
+[gd_scene load_steps=5 format=3 uid="uid://dl2emb0alybbs"]
 
 [ext_resource type="Script" path="res://Scenes/BubbleSpawner/BubbleSpawner.gd" id="1_02sc7"]
 [ext_resource type="AudioStream" uid="uid://dg8n2gmgdol0t" path="res://Assets/Audio/sx_bubble_release_01.wav" id="2_d81g1"]
 [ext_resource type="AudioStream" uid="uid://hg1sw8bdyo6m" path="res://Assets/Audio/sx_bubble_inflate_01.wav" id="3_ikb47"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_08m41"]
+random_pitch = 1.5
+streams_count = 1
+stream_0/stream = ExtResource("2_d81g1")
+
 [node name="BubbleSpawner" type="Node"]
 script = ExtResource("1_02sc7")
 
 [node name="AudioRelease" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_d81g1")
+stream = SubResource("AudioStreamRandomizer_08m41")
 
 [node name="AudioInflate" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ikb47")
