@@ -1,4 +1,4 @@
-[gd_scene load_steps=215 format=4 uid="uid://lm7q43u0nst0"]
+[gd_scene load_steps=217 format=4 uid="uid://lm7q43u0nst0"]
 
 [ext_resource type="PackedScene" uid="uid://nusimec88pyi" path="res://Scenes/Player/Player.tscn" id="1_fwahb"]
 [ext_resource type="PackedScene" uid="uid://bmy215wwas82f" path="res://Scenes/Paint/PaintEmitter.tscn" id="2_8ccek"]
@@ -31,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://crp7hawf735qc" path="res://Scenes/Instructions/Refill.tscn" id="29_rofe7"]
 [ext_resource type="PackedScene" uid="uid://fbguep3rqr1m" path="res://Scenes/Instructions/Blow.tscn" id="30_l4588"]
 [ext_resource type="PackedScene" uid="uid://bxytu3nugaj2j" path="res://Scenes/Instructions/Catch.tscn" id="31_lgrq5"]
+[ext_resource type="PackedScene" uid="uid://cnqioyiiyakvn" path="res://Scenes/Instructions/Container.tscn" id="32_l2alq"]
+[ext_resource type="PackedScene" uid="uid://incno23l7j4s" path="res://Scenes/Instructions/Arrow.tscn" id="33_h3e5h"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_y7a0q"]
 vertices = PackedVector3Array(-19.75, 9.25, -42, -19, 9.25, -42, -18.75, 9.25, -54.25, -19.75, 9.25, -54.5, -1.5, 9.25, -54.25, -0.5, 9.25, -54.5, -1.25, 9.25, -40.75, -0.5, 9.25, -40.75, -2.25, 5.25, -46.5, -3.75, 5.25, -46.75, -6.5, 5.25, -47, -10.25, 5.25, -36.5, -2.25, 5.25, -40.25, -15, 5.25, -32.5, -9.5, 5.25, -34.25, -10.5, 5.25, -35.5, -15.5, 5.25, -33.25, -6.5, 5.25, -51.75, -6.5, 5.25, -53.25, -18, 5.25, -53.25, -16.75, 5.25, -33.25, -17.75, 5.25, -32.5, -3.25, 5.25, -47, -3.25, 5.25, -51.75, -2.25, 5.25, -53.25, 18.25, 10.5, -18.5, 18.5, 10.25, -8.5, 19.5, 10.25, -8.5, 19.5, 16.5, -39.75, 19.1667, 15.5, -34.0833, 19.5, 10.25, -17.4286, 19.5, 15.75, -35.2857, -3.25, 16.25, -38.5, -5.25, 16.25, -38.5, -5.25, 10.5, -18.5, -3.53572, 16, -35.6429, -5.25, 16, -35.6429, -1.5, 16.25, -39.75, 0.250181, 16.25, -36.7602, 18.2703, 16.25, -36.7283, -19.75, 10.25, -8.5, -18.5, 10.25, -8.5, -18.25, 10.5, -18.5, -19.75, 16, -38.25, -19.75, 15.75, -35.275, -19.75, 10.25, -17.425, -19.4286, 15.5, -34.0179, -17.775, 16.25, -36.775, 2.75, 5.25, -35.75, 2.5, 5.25, -38.25, -1, 5.25, -38.25, -8.5, 5.25, -34.25, -17.5, 5.25, -20.75, -12, 5.25, -20.75, -11.75, 5.25, -22.5, -14.75, 5.25, -31.25, -17.5, 5.25, -29.75, -9, 5.25, -22.5, 0.5, 5.25, -20.75, 4, 5.25, -35.5, 0.75, 5.25, -20.25, -8.75, 5.25, -20.75, 17.25, 5.25, -38.25, 5, 5.25, -38.25, 5, 5.25, -35.75, 0.75, 5.25, -19.5, 15.75, 5.25, -21, 16, 5.25, -22, 17.25, 5.25, -22, 3.5, 6.5, -37.5, 3.75, 6.5, -36.5, 4.25, 6.5, -37, -10.5, 6.75, -20.75, -9.75, 6.75, -21, -9.75, 6.75, -21.5, -11, 6.75, -21.5, 14.5, 5.25, -16.25, 17.5, 5.25, -16, 17.5, 5.25, -19.75, 0.75, 5.25, -17.75, 0.25, 5.25, -17.5, 14.25, 5.25, -15.75, -4.25, 5.25, -18.75, -0.5, 5.25, -18.75, -0.5, 5.25, -19.5, -8.75, 5.25, -19.5, -27.75, 1.25, 12.5, -28, 1.25, 11.25, -28.75, 1.25, 11.25, -28.75, 1.25, 18.5, 11.75, 1.25, 37.25, 12.25, 1.25, 35.75, 11.75, 1.25, 35.5, -17.5, 1.25, 38.5, -26, 1.25, 1.5, -26.25, 1.25, 2.75, -24.5, 1.25, 2.75, -17.5, 1.25, 1.25, 13.25, 1.25, 38.5, 13.5, 1.25, 37.5, -19.75, 1.25, 18.5, -19.5, 1.25, 19.5, -17.5, 1.25, 19.75, 11.75, 1.25, 34.5, 16.75, 1.25, 34.25, 17.5, 1.25, 21.5, -5.75, 5.25, -12.5, -9.25, 5.25, -12.25, -16.5962, 1.25, 0.192307, -10.2692, 5, -7.21154, -12.25, 5, -7.34091, -16.75, 1.25, 0.022728, -24.5, 1.25, 12.25, 14.25, 5.25, -11.25, 15.4318, 1.25, 0.659092, 14.5455, 5.25, -8.27273, -14.8409, 1.25, 21.0909, -10.8523, 0.5, 23.1023, -2.875, 0.5, 27.125, -0.21591, 1.25, 28.4659, 10.7717, 1.25, 0.730232, 0.245266, 5.25, -8.23328, -10.2502, 1.25, 20.2418, 0.260641, 1.25, 26.267, -4.2697, 0.5, 23.2593, -2.72509, 1.25, 20.2467, -1.25844, 1.25, 0.742336, -2.73468, 0.5, 23.2703, -9.5, 5.25, -14.75, -17.5, 5.25, -17.5, -17.5, 5, -7.40385, -17.5, 1.5, -0.192307, -6, 5.25, -15, 17.5, 5.25, -11.25, 17.5, 1.25, 0.659092, 17.5, 5.25, -8.27273, -16.24, 0.5, 23.236, -2.74946, 0.5, 30.7694, 0.225723, 1.25, 32.2342, -2.76912, 0.5, 33.7271, -16.2342, 0.5, 33.7282, 0.250904, 1.25, 33.749, -16.2638, 1.25, 36.7298, -8.5, 6.25, -14, -8.5, 6.25, -13.25, -6.75, 6.25, -13.25, -6.75, 6.25, -14, -19.75, 8.25, -7.5, -19.75, 8.25, -0.5, -18.5, 8.25, -0.5, -18.5, 8.25, -7.5, -19.5, 5.25, -7.5, -19.5, 1.75, -0.5, -18.75, 1.75, -0.5, -18.75, 5.25, -7.5, 18.5, 8.25, -7.5, 18.5, 8.25, -0.5, 19.5, 8.25, -0.5, 19.5, 8.25, -7.5, 18.75, 5.25, -7.5, 18.75, 1.75, -0.5, 19.25, 1.75, -0.5, 19.25, 5.25, -7.5, 19.5, 5.5, 0.5, 18.5, 5.5, 0.5, 18.25, 5.25, 1.25, 18.25, 5.25, 20.75, 19.5, 5.25, 20.25, 39, 7.25, 20.75, 39.5, 7.25, 20.5, 29.5, 7.25, 20.375, 19.7321, 5.25, 20.75, 28.625, 7.25, 20.75, 39.5, 7.25, 39.75, 39, 7.25, 39.5, -18.25, 5.25, 39.5, -18.5, 5.25, 20.5, -19.75, 5.25, 20.5, -19.75, 5.25, 39.75, 18.4758, 5.25, 39.75, 29.9435, 7.25, 39.75, 29.7661, 7.25, 39.5, 18.6855, 5.25, 39.5, -28, 1.25, 2.75, -28.75, 1.25, 1.5, 17.25, 1.25, 35.5, 16.75, 1.25, 35.75, 17.25, 1.25, 36.25, 17, 1.25, 37.5, 38.25, 3.25, 38.5, 29.75, 3.25, 38.1, 19.1324, 1.25, 38.5, 29.4265, 3.25, 38.5, 38.25, 3.25, 30.5, 33.75, 3.25, 30.25, 29.625, 3.25, 31.75, 17.25, 1.25, 34.5, 33.75, 3.25, 21.75, 29.3182, 3.25, 21.6818, 35.5, 3.25, 21.75, 35.5, 3.25, 28.75, 38.25, 3.25, 28.75, 38.25, 3.25, 21.75)
@@ -2628,14 +2630,14 @@ draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo4" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7.07211, 5.31463, -51.8992)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.10305, 5.31463, -46.8832)
 wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
 mask_viewport = NodePath("../../MaskViewport")
 
 [node name="PileOfPoo5" parent="Enemies" node_paths=PackedStringArray("LevelUVPosition", "draw_viewport", "mask_viewport") instance=ExtResource("16_ifqcg")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.157, 5.31463, -52.2013)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.49466, 5.31463, -52.2013)
 wall_min_slide_angle = 0.261799
 LevelUVPosition = NodePath("../../LevelUVPosition")
 draw_viewport = NodePath("../../DrawViewport")
@@ -3090,19 +3092,19 @@ shape = SubResource("ConvexPolygonShape3D_0vmmu")
 [node name="RubbishContainers" type="Node3D" parent="NavigationRegion3D"]
 
 [node name="RubbishContainer" parent="NavigationRegion3D/RubbishContainers" instance=ExtResource("23_vpo5s")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.959, 5.16224, -51.7672)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.959, 4.99719, -51.7672)
 
 [node name="RubbishContainer2" parent="NavigationRegion3D/RubbishContainers" instance=ExtResource("23_vpo5s")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.9321, 5.16224, -13.6174)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.9321, 5.00677, -13.6174)
 
 [node name="RubbishContainer3" parent="NavigationRegion3D/RubbishContainers" instance=ExtResource("23_vpo5s")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.2179, 1.34456, 9.90813)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.2179, 1.005, 9.90813)
 
 [node name="RubbishContainer4" parent="NavigationRegion3D/RubbishContainers" instance=ExtResource("23_vpo5s")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.2179, 1.34456, 5.17268)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.2179, 1.00296, 5.17268)
 
 [node name="RubbishContainer5" parent="NavigationRegion3D/RubbishContainers" instance=ExtResource("23_vpo5s")]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 14.4763, 1.34456, 35.8566)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 14.4763, 0.998969, 35.8566)
 
 [node name="Water" type="Node3D" parent="."]
 
@@ -3174,14 +3176,28 @@ shape = SubResource("BoxShape3D_27jqf")
 [node name="SceneHandler" type="Node" parent="."]
 script = ExtResource("28_lprxq")
 
-[node name="Instruction" parent="." instance=ExtResource("29_rofe7")]
+[node name="Instructions" type="Node" parent="."]
+
+[node name="refill" parent="Instructions" instance=ExtResource("29_rofe7")]
 transform = Transform3D(0.864792, 0, -0.50213, 0, 1, 0, 0.50213, 0, 0.864792, -13.1239, 7.63661, -48.5921)
 
-[node name="Instruction2" parent="." instance=ExtResource("30_l4588")]
-transform = Transform3D(-3.81949e-08, -0.48629, -0.873798, -2.12564e-08, 0.873798, -0.48629, 1, 0, -4.37114e-08, -6.11397, 7.73268, -53.7405)
+[node name="blow" parent="Instructions" instance=ExtResource("30_l4588")]
+transform = Transform3D(-4.34975e-08, 0.098816, -0.995106, 4.31938e-09, 0.995106, 0.098816, 1, -1.55218e-15, -4.37114e-08, -6.00464, 8.88015, -53.7378)
 
-[node name="Instruction3" parent="." instance=ExtResource("31_lgrq5")]
-transform = Transform3D(0.000650794, -0.00037966, -1, -0.000366077, 1, -0.00037991, 1, 0.000366336, 0.000650648, -10.3421, 7.97416, -53.8348)
+[node name="catch" parent="Instructions" instance=ExtResource("31_lgrq5")]
+transform = Transform3D(0.00073834, -0.355168, -0.934802, -0.000111349, 0.934802, -0.355168, 1, 0.000366336, 0.000650648, -10.3736, 7.97416, -53.8348)
+
+[node name="to_container" parent="Instructions" instance=ExtResource("32_l2alq")]
+transform = Transform3D(-0.999823, -1.87132e-09, 0.0187962, -0.00352624, 0.982245, -0.187571, -0.0184625, -0.187604, -0.982071, -1.93819, 6.91542, -49.0578)
+
+[node name="arrow1" parent="Instructions" instance=ExtResource("33_h3e5h")]
+transform = Transform3D(0.0167996, 0.427847, -0.903695, -0.00795227, 0.903851, 0.427773, 0.999827, 0, 0.0185867, -2.82463, 11.6663, -53.811)
+
+[node name="arrow2" parent="Instructions" instance=ExtResource("33_h3e5h")]
+transform = Transform3D(0.0116149, 0.780703, -0.624794, -0.0145107, 0.624902, 0.780568, 0.999827, -9.79542e-10, 0.0185867, -1.36666, 11.7788, -53.811)
+
+[node name="arrow3" parent="Instructions" instance=ExtResource("33_h3e5h")]
+transform = Transform3D(0.00345795, 0.982541, -0.186012, -0.0182622, 0.186044, 0.982372, 0.999827, -9.79542e-10, 0.0185867, 0.234392, 11.2418, -53.8145)
 
 [editable path="Player"]
 [editable path="NavigationRegion3D/FinalMap"]

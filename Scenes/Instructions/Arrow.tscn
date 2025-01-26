@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://incno23l7j4s"]
+
+[ext_resource type="Script" path="res://Scenes/Instructions/instruction.gd" id="1_icq2x"]
+[ext_resource type="Texture2D" uid="uid://b2m26u344p6og" path="res://Scenes/Instructions/arrow.png" id="2_8026g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gikil"]
+transparency = 1
+albedo_texture = ExtResource("2_8026g")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n4ab7"]
+lightmap_size_hint = Vector2i(12, 12)
+orientation = 0
+
+[node name="Instruction" type="Node3D"]
+script = ExtResource("1_icq2x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_gikil")
+mesh = SubResource("PlaneMesh_n4ab7")

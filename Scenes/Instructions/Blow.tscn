@@ -9,7 +9,7 @@ albedo_texture = ExtResource("2_d7m1h")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n4ab7"]
 lightmap_size_hint = Vector2i(12, 12)
-size = Vector2(5, 3)
+size = Vector2(5, 6)
 orientation = 0
 
 [node name="Instruction" type="Node3D"]

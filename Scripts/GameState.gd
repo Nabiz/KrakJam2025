@@ -113,8 +113,8 @@ func onNumberOfEnemiesChanged(numberOfEnemies: int):
 		win();
 
 func win():
+	ticker.stop();
 	game_won.emit();
-
 	
 func lost():
 	game_lost.emit();
