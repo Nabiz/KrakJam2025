@@ -105,7 +105,6 @@ offset_right = 374.0
 offset_bottom = 97.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 last_wrap_alignment = 1
 script = ExtResource("6_pxn63")
 Icon = ExtResource("7_sjatm")
