@@ -34,18 +34,20 @@ func _ready():
 		return gfx.scale.x;
 
 func destroy():
+	self.remove_from_group("Enemy");
 	destroyed.emit();
 	self.collision_layer = 0;
 	var audio = smallExplosionAudio if self.targetScale < 1.5 else explosionAudio ;
 	audio.play();
-	EventBus.emit_signal("bubble_destroyed");
+	GameState.bubble_destroyed.emit()
 	#workaround to make audio play before being destroyed
 	self.visible = false;
 	audio.connect("finished", Callable(self, "queue_free"))
 
 
 func score():
-	EventBus.emit_signal("enemy_wiped");
+	self.remove_from_group("Enemy");
+	GameState.enemy_wiped.emit()
 	scoreAudio.play();
 	#workaround to make audio play before being destroyed
 	self.visible = false;
@@ -67,8 +69,8 @@ func _on_body_entered(body: Node):
 		grabbedVisual.reparent(self);
 		body.queue_free();
 		catchAudio.play();
-		EventBus.emit_signal("enemy_grabbed");
-		self.add_to_group("FullBubble");
+		GameState.enemy_grabbed.emit()
+		self.add_to_group("Enemy");
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(grabbedVisual, "position", Vector3.DOWN * 0.3, 0.8).set_trans(Tween.TRANS_SPRING)

@@ -7,6 +7,12 @@ signal time_change;
 signal time_end;
 signal time_low;
 
+signal enemy_grabbed;
+signal enemy_wiped;
+signal bubble_destroyed;
+
+signal enemy_number_changed(numberOfEnemies);
+
 signal start_loading;
 signal stop_loading;
 
@@ -32,6 +38,9 @@ func _ready():
 	ticker.timeout.connect(_on_timer_timeout);
 	bubblesTicker.timeout.connect(_on_bubbleTicker_timeout);
 	loadingTicker.timeout.connect(_on_loadingTicker_timeout);
+	
+	self.enemy_wiped.connect(emitNumberOfEnemies);
+	emitNumberOfEnemies();
 
 	ticker.start(1);
 	
@@ -78,3 +87,8 @@ func _on_loadingTicker_timeout():
 		bubbles = 100;
 		stopLoading();
 	bubbles += 5;
+	
+func emitNumberOfEnemies():
+	self.enemy_number_changed.emit(get_tree().get_node_count_in_group("Enemy"));
+	print(get_tree().get_node_count_in_group("Enemy"));
+	pass;
